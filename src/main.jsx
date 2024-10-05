@@ -4,6 +4,10 @@ import App from './App.jsx'
 import './index.css';
 import WebFont from 'webfontloader';
 
+// cambiar el icono icono de la aplicación
+import { Helmet } from 'react-helmet';
+import favicon from './Assets/img.png'
+
 // cargar la fuente Poppins
 // 400,500,700,900
     WebFont.load({
@@ -13,7 +17,14 @@ import WebFont from 'webfontloader';
     });
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+  <>
+    <Helmet>
+      <title>APP GESTION DE GASTOS</title>
+      <link rel="shortcut icon" href={favicon} type="image/x-icon" />
+    </Helmet>
+
+    <StrictMode>
+      <App />
+    </StrictMode>
+  </>
 )
