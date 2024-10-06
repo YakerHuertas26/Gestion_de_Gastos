@@ -7,12 +7,13 @@ import WebFont from 'webfontloader';
 // cambiar el icono icono de la aplicación
 import { Helmet } from 'react-helmet';
 import favicon from './Assets/img.png'
+import Onda from './Styles/Onda.jsx';
 
 // cargar la fuente Poppins
 // 400,500,700,900
     WebFont.load({
       google: {
-        families: ['Poppins:400,500,700,900', 'sans-serif']
+        families: ['Poppins:400,500,600,700,900', 'sans-serif']
       }
     });
 
@@ -25,6 +26,7 @@ createRoot(document.getElementById('root')).render(
 
     <StrictMode>
       <App />
+      <Onda/>
     </StrictMode>
   </>
 )

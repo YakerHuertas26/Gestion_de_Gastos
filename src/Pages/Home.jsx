@@ -1,6 +1,10 @@
+import HeaderComponent from "../Components/Header";
+
 const Home = () => {
-    return ( 
-        <span>EStoy en la pag de incio </span>
+    return (
+        <HeaderComponent/>
+            
+
      );
 }
  

@@ -15,7 +15,7 @@ const Rutes = () => {
                 <Route path="/" element={<Home/>} />
                 <Route path="Iniciar_sesion" element={<IniciarSesion/>} />
                 <Route path="Crear_cuenta" element={<CrearCuenta/>} />
-                <Route path="Categoria_gasto" element={<CategoriaGasto/>} />
+                <Route path="Categoria" element={<CategoriaGasto/>} />
                 <Route path="Lista_gasto" element={<ListaGasto/>} />
                 <Route path="*"  element={<Error404/>}/>
             </Routes>

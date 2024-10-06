@@ -1,5 +1,5 @@
 import Rutas from "./Routes/Rutes"
-import Onda from "./Styles/Onda"
+
 
 function App() {
 
@@ -7,7 +7,7 @@ function App() {
   return (
       <>
         <Rutas/>
-        <Onda/>
+        
       </>
   )
 }

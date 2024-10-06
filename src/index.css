@@ -15,12 +15,13 @@ body {
   justify-content: center;
   align-items: center;
   font-family: 'Poppins', sans-serif;
-  border: 2px solid blanchedalmond;
+  /* border: 2px solid blanchedalmond; */
   min-height: 100vh;
 }
 #root{
   width: 100%;
   border: 2px solid red;
+  height: 100vh;
 }
 
 
