@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
-const HeaderStyled = styled.header`
-  width: 100%;
-    padding: 1.6rem ; /* 40px */
+const HeaderStyled = styled.div`
+    width: 100%;
+    padding: 1.6rem ; 
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    border: solid green 3px;
  
-    @media(max-width: 60rem){ /* 950px */
-        justify-content: start;
+    @media(max-width: 500px){ /* 950px */
+        justify-content: space-between;
     }
 `;
 const ConteinerHeard = styled.div`

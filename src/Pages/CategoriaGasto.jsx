@@ -1,6 +1,8 @@
+import HeadarCategoriaGasto from "../Components/HeaderGastosCategoria";
+
 const CategoriaGasto = () => {
     return ( 
-        <p>categoria</p>
+        <HeadarCategoriaGasto/>
      );
 }
  

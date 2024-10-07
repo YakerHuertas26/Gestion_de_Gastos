@@ -23,6 +23,9 @@ const Botton = styled(NavLink)`
     }
     @media (max-width: 550px) {
     height: 2.4rem;
+    width: 8.6rem;
+    font-size: 1.2rem;
+
 }
 `;
 

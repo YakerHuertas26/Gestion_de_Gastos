@@ -9,6 +9,7 @@ const HeaderComponent = () => {
                 <ContentButonStyled>
                     <Boton desciption="Categoria" link='Categoria' />
                     <Boton desciption="Lista Gastos" link='Lista_gasto' />
+                    <Boton desciption="x" />
                 </ContentButonStyled>
             </ConteinerHeard>
         </HeaderStyled>
