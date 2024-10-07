@@ -1,8 +1,8 @@
-import HeadarCategoriaGasto from "../Components/HeaderGastosCategoria";
+import HeaderPage from "../Components/HeaderPage";
 
 const CategoriaGasto = () => {
     return ( 
-        <HeadarCategoriaGasto/>
+        <HeaderPage titulo="Gastos por categoría"/>
      );
 }
  

@@ -6,11 +6,12 @@ const HeaderStyled = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    height: 10vh;
     border: solid green 3px;
  
     @media(max-width: 500px){ /* 950px */
         justify-content: space-between;
+        height: 15vh;
     }
 `;
 const ConteinerHeard = styled.div`
@@ -27,7 +28,7 @@ const ConteinerHeard = styled.div`
  
         & > div {
             display: flex;
-            margin-bottom: 2rem;
+            margin-bottom: 0.5rem;
             justify-content: end;
         }
     }

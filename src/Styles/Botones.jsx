@@ -11,7 +11,7 @@ const Botton = styled(NavLink)`
     height: 100%;
     width: ${(props)=> props.icono ? '14rem' : '11rem'};
     font-size: 1.4rem;
-    font-weight: 500;
+    font-weight: 700;
     cursor: pointer;
     display: inline-flex;
     justify-content: space-around;
@@ -23,8 +23,8 @@ const Botton = styled(NavLink)`
     }
     @media (max-width: 550px) {
     height: 2.4rem;
-    width: 8.6rem;
-    font-size: 1.2rem;
+    width: 8.3rem;
+    font-size: 1.1rem;
 
 }
 `;

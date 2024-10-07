@@ -1,6 +1,8 @@
+import HeaderPage from "../Components/HeaderPage";
+
 const ListaGasto = () => {
     return ( 
-        <p>lista de gastos</p>
+        <HeaderPage titulo="Lista de Gastos"/>
      );
 }
  

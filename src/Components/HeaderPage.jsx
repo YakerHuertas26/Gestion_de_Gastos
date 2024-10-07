@@ -1,17 +1,17 @@
-import { useNavigate } from "react-router";
+
 import { Titulo } from "../b_Element/E_Header";
 import {  HeaderStyled } from "../Styles/HeaderStyled";
 import ButonRegresar from "../b_Element/BtnRegresar";
 
 
-const HeadarCategoriaGasto = () => {
+const HeaderPage = ({titulo}) => {
     
     return ( 
         <HeaderStyled>
                 <ButonRegresar/>
-                <Titulo titulo="Gastos por categoría"/>
+                <Titulo titulo={titulo}/>
         </HeaderStyled>
      );
 }
  
-export default HeadarCategoriaGasto;
+export default HeaderPage;
