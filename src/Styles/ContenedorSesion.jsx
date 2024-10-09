@@ -9,8 +9,11 @@ const ContenedorSesion = styled.div`
     background-size:  100% 100%;
     background-position: center;
     position: relative;
-    /* z-index: 10; */
-
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 12%;
+    align-items: center;
 
     @media (max-width: 500px) {
         background-size:  cover;

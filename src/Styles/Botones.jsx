@@ -4,12 +4,12 @@ import styled from 'styled-components';
 const Botton = styled(NavLink)`
   background: ${(props)=> props.secundario ? '#14F97D':'#0347F5'};
   color: ${props=> props.secundario? '#112C50': '#Fff' };
-  /* width: 10rem; */
     margin: 0px 1rem;
     border: none;
     border-radius: 1rem;
     height: 100%;
-    width: ${(props)=> props.icono ? '14rem' : '11rem'};
+    max-height: 4rem;
+    width: ${(props)=> props.icono ? '14rem' : '12rem'};
     font-size: 1.4rem;
     font-weight: 700;
     cursor: pointer;
@@ -22,9 +22,9 @@ const Botton = styled(NavLink)`
         fill: white;
     }
     @media (max-width: 550px) {
-    height: 2.4rem;
-    width: 8.3rem;
-    font-size: 1.1rem;
+    height: 3.4rem;
+    width: 9.3rem;
+    font-size: 1.2rem;
 
 }
 `;
