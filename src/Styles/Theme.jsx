@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+
 
 const Theme = {
     fonde:'#112C50',

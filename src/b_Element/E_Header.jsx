@@ -9,7 +9,8 @@ const Titulo = ({titulo}) => {
 
 const Boton = ( {desciption,secundario,link,login}) => {
     return ( 
-        <Botton secundario={secundario} to={link} login={login}>{desciption}</Botton>
+        <Botton secundario={secundario} to={link} login={login}>{desciption}
+        </Botton>
     );
 }
 

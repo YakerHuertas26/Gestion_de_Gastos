@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const ContenedorFomulario = styled.div`
     /* border: solid 2px red; */
     width: 34rem;
-    height: 32rem;
+    height: 34rem;
     margin: 0 auto;
     border-radius: 2rem;
     background: rgba(255, 255, 255, 0.1);
@@ -30,12 +30,12 @@ const IconoEncabezado = styled.img`
 const Formulario = styled.form`
    /* border: solid 2px green; */
    width: 25rem;
-   height: 24rem;
-   margin-top: 0.5rem;
+   height: 28rem;
+   margin-top: 1rem;
    display: flex;
    flex-direction: column;
    padding: 0.5rem;
-   gap: 2rem;
+   gap: 3rem;
    justify-content: center;
    align-items: center;
 `;
@@ -46,7 +46,6 @@ const ContentInput = styled.div`
   /* border: 2px solid red; */
   height: 3.2rem;
   background: rgba(225,225,225, 0.6);
-  border-radius:10px;
   position:relative;
   border-radius: 40rem;
    .contenedorIcono{

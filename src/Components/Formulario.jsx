@@ -5,11 +5,11 @@ import { ContentInput } from "../Styles/FormularioStyled";
 import { RiLockPasswordLine } from "react-icons/ri";
 
 
-const HeaderFomulario = ({ruta}) => {
+const HeaderFomulario = ({ruta,titulo}) => {
     return ( 
             <>
             <Icono ruta={ruta}  />
-            <Titulo titulo="Crear Cuenta" className="titulo"/>
+            <Titulo titulo={titulo} className="titulo"/>
             </>
         
     );

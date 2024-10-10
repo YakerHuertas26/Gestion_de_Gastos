@@ -7,15 +7,16 @@ const HeaderStyled = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 10vh;
-    border: solid green 3px;
+    
  
     @media(max-width: 500px){ /* 950px */
         justify-content: space-between;
         height: 15vh;
+        margin-top: 1.4rem;
     }
 `;
 const ConteinerHeard = styled.div`
-  border: solid 2px wheat;
+ 
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -25,6 +26,8 @@ const ConteinerHeard = styled.div`
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
  
         & > div {
             display: flex;
@@ -38,12 +41,13 @@ const TituloStyled = styled.h2`
   font-size: 2.2rem;
   @media(max-width: 500px) {
     font-size: 1.8rem;
+    
   }
 `;
 
 
 const ContentButonStyled = styled.div`
-    border: solid 2px red;
+   
     display: flex;
     justify-content: space-around;
     align-items: center;

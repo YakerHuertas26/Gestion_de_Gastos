@@ -11,6 +11,7 @@ const Input = ({name}) => {
     return ( 
         <InputStyled 
             type="text"
+            name="email"
              placeholder={name}/>
     );
 }
@@ -19,6 +20,7 @@ const Password = ({name}) => {
     return ( 
         <InputStyled 
             type="password"
+            name="password"
              placeholder={name}/>
     );
 }

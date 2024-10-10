@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import fondo from './../Assets/fondo.jpg'
 
 const ContenedorSesion = styled.div`
-    border: 2px solid green;
+    
     height: 100%;
     background-image: url(${fondo});
     background-repeat: no-repeat;

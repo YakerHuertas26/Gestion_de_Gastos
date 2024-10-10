@@ -19,12 +19,12 @@ const CrearCuenta = () => {
             </HeaderStyled>
 
             <ContenedorFomulario >
-                <HeaderFomulario ruta={icono1}/>
+                <HeaderFomulario ruta={icono1} titulo="Crear Cuenta"/>
                 <Formulario  >
                     <InputUser name="Correo Electrónico"/>
                     <InputPassword name="Constraseña"/>
                     <InputPassword name="Confirmar Constraseña"/>
-                    <Boton login="login" desciption="Registrarse"/>
+                    <Boton desciption="Registrarse" />
                 </Formulario>
             </ContenedorFomulario>
 
