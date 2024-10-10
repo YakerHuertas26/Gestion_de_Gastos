@@ -1,8 +1,9 @@
-import { Titulo } from "../b_Element/E_Header";
-import { Icono, Input,Password } from "../b_Element/ElementFormulario";
+
 import { FaUserAlt } from "react-icons/fa";
 import { ContentInput } from "../Styles/FormularioStyled";
 import { RiLockPasswordLine } from "react-icons/ri";
+import { Titulo } from "../Elements/E_Header";
+import { Icono, Input, Password } from "../Elements/ElementFormulario";
 
 
 const HeaderFomulario = ({ruta,titulo}) => {

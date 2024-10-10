@@ -1,9 +1,10 @@
-import { Boton, Titulo } from "../b_Element/E_Header";
+
 import { HeaderFomulario, InputPassword, InputUser } from "../Components/Formulario";
 import { ContenedorSesion } from "../Styles/ContenedorSesion";
 import { ConteinerHeard, ContentButonStyled, HeaderStyled } from "../Styles/HeaderStyled";
 import icono1 from '../Assets/icono.png'
 import { ContenedorFomulario, Formulario } from "../Styles/FormularioStyled";
+import { Boton, Titulo } from "../Elements/E_Header";
 
 
 const CrearCuenta = () => {

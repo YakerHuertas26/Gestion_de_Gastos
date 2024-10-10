@@ -1,9 +1,10 @@
-import { Boton, Titulo } from "../b_Element/E_Header";
+
 import { HeaderFomulario, InputPassword, InputUser } from "../Components/Formulario";
 import { ContenedorSesion } from "../Styles/ContenedorSesion";
 import { ConteinerHeard, ContentButonStyled, HeaderStyled } from "../Styles/HeaderStyled";
 import icono2 from '../Assets/icono2.png'
 import { ContenedorFomulario, Formulario } from "../Styles/FormularioStyled";
+import { Boton, Titulo } from "../Elements/E_Header";
 
 const IniciarSesion = () => {
     return ( 

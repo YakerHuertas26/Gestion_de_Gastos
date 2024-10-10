@@ -1,4 +1,5 @@
-import { Boton, Titulo } from "../b_Element/E_Header";
+
+import { Boton, Titulo } from "../Elements/E_Header";
 import { ConteinerHeard, ContentButonStyled, HeaderStyled } from "../Styles/HeaderStyled";
 
 const HeaderComponent = () => {
