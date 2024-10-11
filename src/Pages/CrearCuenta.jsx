@@ -5,12 +5,29 @@ import { ConteinerHeard, ContentButonStyled, HeaderStyled } from "../Styles/Head
 import icono1 from '../Assets/icono.png'
 import { ContenedorFomulario, Formulario } from "../Styles/FormularioStyled";
 import { Boton, Titulo } from "../Elements/E_Header";
+import useStoreAPP from "../Store/Store";
 
 
 const CrearCuenta = () => {
+    const {emailCreateAccount,passwordCreateAccount,confirmPasswordCreateAccount} =useStoreAPP()
+
     const enviarDatos=(e)=>{
         e.preventDefault();
-        console.log('enviando');
+
+        // expresión regular para validad correo gmail
+        const expretionRegular= /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+        if (!expretionRegular.test(emailCreateAccount)) {
+            console.log('no es correcto');
+            return}
+        if (emailCreateAccount===''||passwordCreateAccount==="" || confirmPasswordCreateAccount==="") {
+            console.log('llenar todos los campos');
+            return} 
+        if (passwordCreateAccount!==confirmPasswordCreateAccount) {
+            console.log('password difirent');
+            return
+        }
+        
+        console.log('enviando',emailCreateAccount,passwordCreateAccount,confirmPasswordCreateAccount);
         
     }
     return ( 
@@ -30,7 +47,7 @@ const CrearCuenta = () => {
                     <InputUser name="Correo Electrónico" funtion="emailCrearCuenta"/>
 
                     <InputPassword name="Constraseña" funtion="contraseñaCrearCuenta"/>
-                    
+
                     <InputPassword name="Confirmar Constraseña" funtion="confirmarcontraseñaCrearCuenta"/>
                     <Boton as="button" type="submit" desciption="Registrarse" />
                 </Formulario>

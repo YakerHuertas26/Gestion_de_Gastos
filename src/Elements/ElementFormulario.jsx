@@ -27,7 +27,7 @@ const Input = ({name,funtion}) => {
     
     return ( 
         <InputStyled 
-            type="text"
+            type="email"
             name="email"
             placeholder={name}
             value={Value}
