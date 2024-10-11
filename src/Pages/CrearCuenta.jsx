@@ -6,12 +6,19 @@ import icono1 from '../Assets/icono.png'
 import { ContenedorFomulario, Formulario } from "../Styles/FormularioStyled";
 import { Boton, Titulo } from "../Elements/E_Header";
 import useStoreAPP from "../Store/Store";
+import {createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../FireBase/Config";
+import { useNavigate } from "react-router";
+
+
+
 
 
 const CrearCuenta = () => {
     const {emailCreateAccount,passwordCreateAccount,confirmPasswordCreateAccount} =useStoreAPP()
+    const navigate= useNavigate()
 
-    const enviarDatos=(e)=>{
+    const enviarDatos= async (e)=>{
         e.preventDefault();
 
         // expresión regular para validad correo gmail
@@ -26,8 +33,29 @@ const CrearCuenta = () => {
             console.log('password difirent');
             return
         }
-        
-        console.log('enviando',emailCreateAccount,passwordCreateAccount,confirmPasswordCreateAccount);
+        try {
+            
+            await createUserWithEmailAndPassword( auth, emailCreateAccount, passwordCreateAccount)
+            navigate('/')
+        } catch (error) {
+            let mensaje;
+            switch (error.code) {
+                case 'auth/invalid-password':
+                    mensaje = 'La contraseña tiene que ser de al menos 6 caracteres.'
+                    break;
+                case 'auth/email-already-in-use':
+                    mensaje = 'Ya existe una cuenta con el correo electrónico proporcionado.'
+                break;
+                case 'auth/invalid-email':
+                    mensaje = 'El correo electrónico no es válido.'
+                break;
+                default:
+                    mensaje = 'Hubo un error al intentar crear la cuenta.'
+                break;
+            }
+            console.log(mensaje);
+            
+        }
         
     }
     return ( 

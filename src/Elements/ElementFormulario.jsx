@@ -45,7 +45,7 @@ const Password = ({name,funtion}) => {
         'confirmarcontraseñaCrearCuenta': [confirmPasswordCreateAccount, setconfirmPasswordCreateAccount]
     };
 
-    // Desestructurar el estado y el setter en función del "funtion"
+    // Desestructurar el estado y el setter en función del valor de "funtion"
     const [Value, setValue] = stateMap[funtion] || ['', () => {}];
 
     // Función para manejar el cambio de contraseña

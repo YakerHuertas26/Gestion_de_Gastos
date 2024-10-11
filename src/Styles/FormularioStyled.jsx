@@ -73,7 +73,7 @@ const ContentInput = styled.div`
 `;
 
 const InputStyled = styled.input`
-  width: 89%;
+  width: 80%;
   height: 2.5rem;
   /* border: 2px solid red; */
   border: none;
