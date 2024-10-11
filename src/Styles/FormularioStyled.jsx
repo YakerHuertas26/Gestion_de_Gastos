@@ -29,8 +29,8 @@ const IconoEncabezado = styled.img`
 
 const Formulario = styled.form`
    /* border: solid 2px green; */
-   width: 25rem;
-   height: 28rem;
+   width: 29rem;
+   height: 25rem;
    margin-top: 1rem;
    display: flex;
    flex-direction: column;
@@ -38,16 +38,17 @@ const Formulario = styled.form`
    gap: 3rem;
    justify-content: center;
    align-items: center;
+  
 `;
 const ContentInput = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* border: 2px solid red; */
   height: 3.2rem;
   background: rgba(225,225,225, 0.6);
   position:relative;
   border-radius: 40rem;
+  width: 100%;
    .contenedorIcono{
     
     width: 4rem;
@@ -72,14 +73,14 @@ const ContentInput = styled.div`
 `;
 
 const InputStyled = styled.input`
-  width: 85%;
+  width: 89%;
   height: 2.5rem;
   /* border: 2px solid red; */
   border: none;
   background: transparent;
-  color: #fff;
+  color: #000;
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-left: 1rem;
   &::placeholder{
     color: #fff;

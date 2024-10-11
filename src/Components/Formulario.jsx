@@ -16,10 +16,10 @@ const HeaderFomulario = ({ruta,titulo}) => {
     );
 }
 
-const InputUser = ({name}) => {
+const InputUser = ({name,funtion}) => {
     return ( 
         <ContentInput>
-            <Input name={name}/>
+            <Input name={name} funtion={funtion}/>
             <div className="contenedorIcono">
             <FaUserAlt className="icono"/>
             </div>
@@ -27,10 +27,10 @@ const InputUser = ({name}) => {
     );
 }
 
-const InputPassword = ({name}) => {
+const InputPassword = ({name,funtion}) => {
     return ( 
         <ContentInput>
-            <Password name={name}/>
+            <Password name={name} funtion={funtion}/>
             <div className="contenedorIcono">
             <RiLockPasswordLine className="icono" />
             </div>

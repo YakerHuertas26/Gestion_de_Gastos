@@ -8,6 +8,11 @@ import { Boton, Titulo } from "../Elements/E_Header";
 
 
 const CrearCuenta = () => {
+    const enviarDatos=(e)=>{
+        e.preventDefault();
+        console.log('enviando');
+        
+    }
     return ( 
        <ContenedorSesion>
             <HeaderStyled>
@@ -21,11 +26,13 @@ const CrearCuenta = () => {
 
             <ContenedorFomulario >
                 <HeaderFomulario ruta={icono1} titulo="Crear Cuenta"/>
-                <Formulario  >
-                    <InputUser name="Correo Electrónico"/>
-                    <InputPassword name="Constraseña"/>
-                    <InputPassword name="Confirmar Constraseña"/>
-                    <Boton desciption="Registrarse" />
+                <Formulario onSubmit={enviarDatos}>
+                    <InputUser name="Correo Electrónico" funtion="emailCrearCuenta"/>
+
+                    <InputPassword name="Constraseña" funtion="contraseñaCrearCuenta"/>
+                    
+                    <InputPassword name="Confirmar Constraseña" funtion="confirmarcontraseñaCrearCuenta"/>
+                    <Boton as="button" type="submit" desciption="Registrarse" />
                 </Formulario>
             </ContenedorFomulario>
 
