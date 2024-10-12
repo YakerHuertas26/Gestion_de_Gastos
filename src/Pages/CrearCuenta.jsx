@@ -5,11 +5,11 @@ import { ConteinerHeard, ContentButonStyled, HeaderStyled } from "../Styles/Head
 import icono1 from '../Assets/icono.png'
 import { ContenedorFomulario, ContentInput, CoteienerInputandError, Formulario, InputStyled } from "../Styles/FormularioStyled";
 import { Boton, Titulo } from "../Elements/E_Header";
-import useStoreAPP from "../Store/Store";
 import {createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../FireBase/Config";
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
+import { Toaster,toast } from 'sonner';
 
 
 
@@ -20,52 +20,36 @@ const CrearCuenta = () => {
 
     // useFrom
 
-    const {register, formState:{errors},handleSubmit} = useForm();
+    const {register, formState:{errors},handleSubmit,watch} = useForm();
 
-
-    
-    // const enviarDatos= async (e)=>{
-        
-
-        // expresión regular para validad correo gmail
-        // const expretionRegular= /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-        // if (!expretionRegular.test(emailCreateAccount)) {
-        //     console.log('no es correcto');
-        //     return}
-        // if (emailCreateAccount===''||passwordCreateAccount==="" || confirmPasswordCreateAccount==="") {
-        //     console.log('llenar todos los campos');
-        //     return} 
-        // if (passwordCreateAccount!==confirmPasswordCreateAccount) {
-        //     console.log('password difirent');
-        //     return
-        // }
-        // try {
-            
-        //     await createUserWithEmailAndPassword( auth, emailCreateAccount, passwordCreateAccount)
-        //     navigate('/')
-        // } catch (error) {
-        //     let mensaje;
-        //     switch (error.code) {
-        //         case 'auth/invalid-password':
-        //             mensaje = 'La contraseña tiene que ser de al menos 6 caracteres.'
-        //             break;
-        //         case 'auth/email-already-in-use':
-        //             mensaje = 'Ya existe una cuenta con el correo electrónico proporcionado.'
-        //         break;
-        //         case 'auth/invalid-email':
-        //             mensaje = 'El correo electrónico no es válido.'
-        //         break;
-        //         default:
-        //             mensaje = 'Hubo un error al intentar crear la cuenta.'
-        //         break;
-        //     }
-        //     console.log(mensaje);
-            
-        // }
-        
-    // }
-    const createUser= handleSubmit((data)=>{
-        console.log(data.emailCreateAccount);
+    const createUser=  handleSubmit(async (data)=>{
+        const email= data.emailCreateAccount
+        const password= data.passwordCreateAccount
+        try {
+            await createUserWithEmailAndPassword(auth,email,password)
+            navigate("/")
+        } catch (error) {
+            let mensaje;
+            switch (error.code) {
+                case 'auth/invalid-password':
+                    mensaje = 'La contraseña tiene que ser de al menos 6 caracteres.'
+                    break;
+                case 'auth/email-already-in-use':
+                    mensaje = 'Ya existe una cuenta con el correo electrónico proporcionado.'
+                break;
+                case 'auth/invalid-email':
+                    mensaje = 'El correo electrónico no es válido.'
+                break;
+                default:
+                    mensaje = 'Hubo un error al intentar crear la cuenta.'
+                break;
+            }
+           toast.error(`${mensaje}`,{
+            duration: 1000,
+             position: 'top-center'
+           })
+           
+        }
         
     })
     return ( 
@@ -85,7 +69,7 @@ const CrearCuenta = () => {
                     <CoteienerInputandError>
                     <ContentInput>
                         <InputStyled type="email" placeholder="Correo Electrónico"
-                        {...register ('emailCreateAccount', {required:{value:true, message:"Completar Campo"}})} />
+                        {...register ('emailCreateAccount', {required:{value:true, message:"Completar Campo"},pattern:{value:/^[a-zA-Z0-9._%+-]+@gmail\.com$/, message:'Correo invalido (@gmail.com)'}})} />
                         <InputUser name="Nombre" funtion="emailCrearCuenta"/>
                     </ContentInput>
                         {errors.emailCreateAccount && <span>{errors.emailCreateAccount.message}</span>}
@@ -94,7 +78,7 @@ const CrearCuenta = () => {
                     <CoteienerInputandError>
                         <ContentInput>
                             <InputStyled type="password" placeholder="Contraseña"
-                            {...register('passwordCreateAccount',{required:{value:true, message:"Completar Campo"},minLength:{value:8,message:"La contraseña tiene que ser mayor a 8 carácteres"}})}
+                            {...register('passwordCreateAccount',{required:{value:true, message:"Completar Campo"},minLength:{value:8,message:"La contraseña debe tener a menos 8 carácteres"}})}
                             />
                             <InputPassword name="Constraseña" funtion="contraseñaCrearCuenta"/>
                         </ContentInput>
@@ -104,16 +88,17 @@ const CrearCuenta = () => {
                     <CoteienerInputandError>
                         <ContentInput>
                             <InputStyled type="password" placeholder="Contraseña"
-                            {...register ('confirPassword',{required:{value:true, message:"Completar Campo"},minLength:{value:8,message:"La contraseña tiene que ser mayor a 8 carácteres"}})}
+                            {...register ('confirPassword',{required:{value:true, message:"Completar Campo"},
+                            validate:value=> value===watch('passwordCreateAccount') || "Las contraseñas no coinciden"
+                                
+                            })}
                             />
                             <InputPassword name="Confirmar Constraseña" funtion="confirmarcontraseñaCrearCuenta"/>
                         </ContentInput>
                         {errors.confirPassword && <span>{errors.confirPassword.message}</span>}
                     </CoteienerInputandError>
-                    
-
-                    
                     <Boton as="button" type="submit" desciption="Registrarse" />
+                    <Toaster expand visibleToasts={2} richColors/>
                 </Formulario>
             </ContenedorFomulario>
 

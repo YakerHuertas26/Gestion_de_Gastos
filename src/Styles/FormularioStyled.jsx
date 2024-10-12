@@ -46,8 +46,9 @@ const CoteienerInputandError= styled.div`
   flex-direction: column;
   span{
     color: red;
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-left: 1rem;
+    font-weight: 400;
 
   }
 
