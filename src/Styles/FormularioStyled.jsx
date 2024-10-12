@@ -35,12 +35,25 @@ const Formulario = styled.form`
    display: flex;
    flex-direction: column;
    padding: 0.5rem;
-   gap: 3rem;
+   gap: 2.2rem;
    justify-content: center;
    align-items: center;
   
 `;
+const CoteienerInputandError= styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  span{
+    color: red;
+    font-size: 1rem;
+    margin-left: 1rem;
+
+  }
+
+`
 const ContentInput = styled.div`
+  /* border: solid 2px red; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -93,4 +106,4 @@ const InputStyled = styled.input`
 `;
 
 
-export {ContenedorFomulario,IconoEncabezado,Formulario,ContentInput,InputStyled};
+export {ContenedorFomulario,IconoEncabezado,Formulario,ContentInput,InputStyled,CoteienerInputandError};

@@ -8,60 +8,63 @@ const Icono = ({ruta}) => {
     );
 }
 
-const Input = ({name,funtion}) => {
-    // importo mi función que modifica el correoCrearCuenta
-    const {setEmailCreateAccount,emailCreateAccount}=useStoreAPP();
+// const Input = ({name,funtion}) => {
+//     // importo mi función que modifica el correoCrearCuenta
+//     // const {setEmailCreateAccount,emailCreateAccount}=useStoreAPP();
 
-    const stateMap ={
-        'emailCrearCuenta':[emailCreateAccount,setEmailCreateAccount]
-    };
+//     // const stateMap ={
+//     //     'emailCrearCuenta':[emailCreateAccount,setEmailCreateAccount]
+//     // };
     
-    // desctructuro
-    const [Value,setValue]= stateMap[funtion]|| ['',()=>{}];
+//     // desctructuro
+//     // const [Value,setValue]= stateMap[funtion]|| ['',()=>{}];
     
-    // para modidicar mediante el onchage
-    const onchange= (e)=> {setValue(e.target.value)}
+//     // para modidicar mediante el onchage
+//     // const onchange= (e)=> {setValue(e.target.value)}
 
 
 
     
-    return ( 
-        <InputStyled 
-            type="email"
-            name="email"
-            placeholder={name}
-            value={Value}
-            onChange={onchange}
-            />
-    );
-}
+//     return ( 
+//         <InputStyled 
+//             type="email"
+//             name="email"
+//             placeholder={name}
+//             // value={Value}
+//             // onChange={onchange}
+//             />
+//     );
+// }
 
-const Password = ({name,funtion}) => {
-    const {setPasswordCreateAccount,setconfirmPasswordCreateAccount,passwordCreateAccount,confirmPasswordCreateAccount}=useStoreAPP();
+// const Password = ({name,funtion}) => {
+//     // const {setPasswordCreateAccount,setconfirmPasswordCreateAccount,passwordCreateAccount,confirmPasswordCreateAccount}=useStoreAPP();
 
-    // Mapeo dinámico para obtener el estado y su respectivo setter
-    const stateMap = {
-        'contraseñaCrearCuenta': [passwordCreateAccount, setPasswordCreateAccount],
-        'confirmarcontraseñaCrearCuenta': [confirmPasswordCreateAccount, setconfirmPasswordCreateAccount]
-    };
+//     // Mapeo dinámico para obtener el estado y su respectivo setter
+//     // const stateMap = {
+//     //     'contraseñaCrearCuenta': [passwordCreateAccount, setPasswordCreateAccount],
+//     //     'confirmarcontraseñaCrearCuenta': [confirmPasswordCreateAccount, setconfirmPasswordCreateAccount]
+//     // };
 
-    // Desestructurar el estado y el setter en función del valor de "funtion"
-    const [Value, setValue] = stateMap[funtion] || ['', () => {}];
+//     // Desestructurar el estado y el setter en función del valor de "funtion"
+//     // const [Value, setValue] = stateMap[funtion] || ['', () => {}];
 
-    // Función para manejar el cambio de contraseña
-    const handleChange = (e) => setValue(e.target.value);
-
-
-    return ( 
-        <InputStyled 
-            type="password"
-            name="password"
-            placeholder={name}
-            onChange={handleChange}
-            value={Value}/>
-    );
-}
+//     // Función para manejar el cambio de contraseña
+//     // const handleChange = (e) => setValue(e.target.value);
 
 
+//     return ( 
+//         <InputStyled 
+//             type="password"
+//             name="password"
+//             placeholder={name}
+//             // onChange={handleChange}
+//             // value={Value}
+//             />
+//     );
+// }
 
-export { Icono,Input,Password };
+
+
+
+
+export { Icono };

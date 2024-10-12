@@ -3,7 +3,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { ContentInput } from "../Styles/FormularioStyled";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { Titulo } from "../Elements/E_Header";
-import { Icono, Input, Password } from "../Elements/ElementFormulario";
+import { Icono } from "../Elements/ElementFormulario";
 
 
 const HeaderFomulario = ({ruta,titulo}) => {
@@ -18,23 +18,17 @@ const HeaderFomulario = ({ruta,titulo}) => {
 
 const InputUser = ({name,funtion}) => {
     return ( 
-        <ContentInput>
-            <Input name={name} funtion={funtion}/>
-            <div className="contenedorIcono">
-            <FaUserAlt className="icono"/>
-            </div>
-        </ContentInput>
+                <div className="contenedorIcono">
+                <FaUserAlt className="icono"/>
+                </div>
     );
 }
 
 const InputPassword = ({name,funtion}) => {
     return ( 
-        <ContentInput>
-            <Password name={name} funtion={funtion}/>
             <div className="contenedorIcono">
-            <RiLockPasswordLine className="icono" />
-            </div>
-        </ContentInput>
+                <RiLockPasswordLine className="icono" />
+            </div>    
     );
 }
 
