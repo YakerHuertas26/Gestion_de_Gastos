@@ -1,15 +1,16 @@
 import { create } from "zustand";
+import { auth } from "../FireBase/Config";
+
 
 const useStoreAPP= create((set)=>({
-    // +++++++++Crear Cuenta +++++++++++
-    emailCreateAccount:"",
-    setEmailCreateAccount: ((p)=> set({emailCreateAccount: p})),
+    //  ++++++++ Sesión activa ++++++
+    login: false,
+    setLogin:()=> set({login:true}),
 
-    passwordCreateAccount:"",
-    setPasswordCreateAccount: (p)=>set({passwordCreateAccount:p}),
+    // verificar usuario en login 
+    user:{},
+    setUser: (p)=>set({user:p})
 
-    confirmPasswordCreateAccount:"",
-    setconfirmPasswordCreateAccount: (p)=>set({confirmPasswordCreateAccount:p})
 
 }));
-export default useStoreAPP;
+ export default useStoreAPP;
