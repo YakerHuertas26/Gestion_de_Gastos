@@ -1,4 +1,3 @@
-
 import { HeaderFomulario, InputPassword, InputUser } from "../Components/Formulario";
 import { ContenedorSesion } from "../Styles/ContenedorSesion";
 import { ConteinerHeard, ContentButonStyled, HeaderStyled } from "../Styles/HeaderStyled";
@@ -27,7 +26,14 @@ const CrearCuenta = () => {
         const password= data.passwordCreateAccount
         try {
             await createUserWithEmailAndPassword(auth,email,password)
-            navigate("/")
+            
+            toast.success('Usuario creado correctamente',{
+                duration: 1000,
+                position: 'top-center'
+            })
+            setTimeout(()=>{
+                navigate("../Iniciar_sesion")
+            },1300)
         } catch (error) {
             let mensaje;
             switch (error.code) {

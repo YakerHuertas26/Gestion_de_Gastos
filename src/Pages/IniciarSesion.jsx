@@ -3,10 +3,47 @@ import { HeaderFomulario, InputPassword, InputUser } from "../Components/Formula
 import { ContenedorSesion } from "../Styles/ContenedorSesion";
 import { ConteinerHeard, ContentButonStyled, HeaderStyled } from "../Styles/HeaderStyled";
 import icono2 from '../Assets/icono2.png'
-import { ContenedorFomulario, Formulario } from "../Styles/FormularioStyled";
+import { ContenedorFomulario, ContentInput, CoteienerInputandError, Formulario, InputStyled } from "../Styles/FormularioStyled";
 import { Boton, Titulo } from "../Elements/E_Header";
+import { useForm } from "react-hook-form";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../FireBase/Config";
+import { Toaster, toast } from 'sonner'
+import { useNavigate } from "react-router";
+
 
 const IniciarSesion = () => {
+    const {register,handleSubmit,watch,formState:{errors}}=useForm();
+    const navigate= useNavigate()
+
+    const Login = handleSubmit(async (data)=>{
+        const emailSesion= data.emailSesion;
+        const passwordSesion= data.
+        passwordSesion;
+
+        try {
+            await signInWithEmailAndPassword(auth,emailSesion,passwordSesion)
+            navigate('/')
+        } catch (error) {
+            let mensaje;
+            switch (error.code) {
+                case 'auth/user-not-found':
+                    mensaje= "Usuario no registrado"
+                    break;
+                case 'auth/invalid-credential':
+                    mensaje= "Credenciales no validas"
+                    break;
+                default:
+                    mensaje= "Hubo un problema al Iniciar sesión"
+                    break;
+            }
+            toast.error(`${mensaje}`,{
+                position: 'top-center',
+                duration:1000
+            })
+        }
+        
+    });
     return ( 
     <ContenedorSesion>
         <HeaderStyled>
@@ -20,13 +57,33 @@ const IniciarSesion = () => {
 
         <ContenedorFomulario >
             <HeaderFomulario ruta={icono2} titulo="Bienvenido"/>
-            <Formulario >
-                <InputUser name="Correo Electrónico"/>
-                <InputPassword name="Constraseña"/>
+            <Formulario onSubmit={Login} >
+            <CoteienerInputandError>
+                    <ContentInput>
+                        <InputStyled type="email" placeholder="Correo Electrónico"
+                        {...register('emailSesion',{required:{value:true,message:'Completar Campo'},pattern:{value:/^[a-zA-Z0-9._%+-]+@gmail\.com$/,message:"Correo invalido (@gmail.com)"}})}
+                        />
+                        <InputUser name="Nombre" funtion="emailCrearCuenta"/>
+                    </ContentInput>
+                        {errors.emailSesion && <span>{errors.emailSesion.message}</span>}
+                        
+            </CoteienerInputandError>
+                    
+            <CoteienerInputandError>
+                        <ContentInput>
+                            <InputStyled type="password" placeholder="Contraseña"
+                            {...register('passwordSesion',{required:{value:true, message:"Completar Campo"},minLength:{value:8, message:"La contraseña debe tener a menos 8 carácteres"}})}/>
+                            <InputPassword name="Constraseña" funtion="contraseñaCrearCuenta"/>
+                        </ContentInput>
+                        {errors.passwordSesion&& <span>{errors.passwordSesion.message}</span>}
+                        
+            </CoteienerInputandError>
                 
                 <Boton 
-                desciption="Iniciar Sesión" secundario="secundario"
-                type="submit"/>
+                desciption="Iniciar Sesión" secundario={true}
+                type="submit" 
+                as="button" />
+                <Toaster richColors visibleToasts={2}/>
             </Formulario>
         </ContenedorFomulario>
 
