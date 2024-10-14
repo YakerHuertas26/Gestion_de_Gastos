@@ -9,20 +9,24 @@ import { auth } from "../FireBase/Config";
 import useStoreAPP from "../Store/Store";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
-
     
 const Rutes = () => {
-    const {user,setUser}=useStoreAPP()
+    const {user,setUser,setLogin,login}=useStoreAPP()
     useEffect(()=>{
             onAuthStateChanged(auth,(usuario)=>{
             setUser(usuario) 
-            
+            setLogin();
+
         })
     },[])
-    console.log(user);
+
+    
     return ( 
+        login &&
         <BrowserRouter>
             <Routes>
+                {/* doy acceso a las ruras dependientso si logeado o no  */}
+
                 <Route path="/" element={<Home/>} />
                 <Route path="Iniciar_sesion" element={<IniciarSesion/>} />
                 <Route path="Crear_cuenta" element={<CrearCuenta/>} />
