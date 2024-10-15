@@ -2,13 +2,12 @@ import styled from 'styled-components';
 
 const HeaderStyled = styled.div`
     width: 100%;
-    padding: 1.6rem ; 
+    padding: 2rem ; 
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 10vh;
     
- 
     @media(max-width: 500px){ /* 950px */
         justify-content: space-between;
         height: 15vh;
@@ -38,7 +37,7 @@ const ConteinerHeard = styled.div`
 `;
 const TituloStyled = styled.h2`
   text-transform: uppercase;
-  font-size: 2.2rem;
+  font-size: 3rem;
   @media(max-width: 500px) {
     font-size: 1.8rem;
     
@@ -51,6 +50,7 @@ const ContentButonStyled = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
+    
 `;
 
 

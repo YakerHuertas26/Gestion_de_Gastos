@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const ContenedorFomulario = styled.div`
     /* border: solid 2px red; */
-    width: 34rem;
-    height: 34rem;
+    width: 40rem;
+    height: 38rem;
     margin: 0 auto;
     border-radius: 2rem;
     background: rgba(255, 255, 255, 0.1);
@@ -20,8 +20,8 @@ const ContenedorFomulario = styled.div`
     }
 `;
 const IconoEncabezado = styled.img`
-  width: 7rem;
-  height: 7rem;
+  width: 8rem;
+  height: 8rem;
   position: absolute;
   top: -40px;
 
@@ -29,13 +29,13 @@ const IconoEncabezado = styled.img`
 
 const Formulario = styled.form`
    /* border: solid 2px green; */
-   width: 29rem;
-   height: 25rem;
-   margin-top: 1rem;
+   width: 80%;
+   height: 30rem;
+   margin-top: 0.5rem;
    display: flex;
    flex-direction: column;
    padding: 0.5rem;
-   gap: 2.2rem;
+   gap: 2rem;
    justify-content: center;
    align-items: center;
   
@@ -46,7 +46,7 @@ const CoteienerInputandError= styled.div`
   flex-direction: column;
   span{
     color: red;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     margin-left: 1rem;
     font-weight: 400;
 
@@ -58,7 +58,7 @@ const ContentInput = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 3.2rem;
+  height: 3.6rem;
   background: rgba(225,225,225, 0.6);
   position:relative;
   border-radius: 40rem;
@@ -94,7 +94,7 @@ const InputStyled = styled.input`
   background: transparent;
   color: #000;
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   margin-left: 1rem;
   &::placeholder{
     color: #fff;

@@ -3,15 +3,15 @@ import styled from 'styled-components';
 const BtnRegresar = styled.button`
   text-align: center;
   border: none;
-  border-radius: 30%;
+  border-radius: 40%;
   cursor: pointer;
   display: flex;
   background: #0347F5;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 3.2rem;
-  height: 3.2rem;
+  width: 4rem;
+  height: 4.5rem;
 
 
   .icon{

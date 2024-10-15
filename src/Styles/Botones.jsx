@@ -8,9 +8,9 @@ const Botton = styled(NavLink)`
       border: none;
       border-radius: 1rem;
       height: 100%;
-      max-height: 4rem;
-      width: ${props=> props.$icono ? '14rem' : '12rem'};
-      font-size: 1.4rem;
+      max-height: 4.5rem;
+      width: ${props=> props.$icono ? '16rem' : '16rem'};
+      font-size: 1.6rem;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;

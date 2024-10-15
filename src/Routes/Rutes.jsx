@@ -18,9 +18,7 @@ const Rutes = () => {
             setUser(usuario)
         });
     },[]) 
-    console.log(user);
-    
-    
+
     return ( 
         
         <BrowserRouter>
