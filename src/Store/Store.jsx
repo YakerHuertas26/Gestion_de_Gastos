@@ -3,13 +3,10 @@ import { auth } from "../FireBase/Config";
 
 
 const useStoreAPP= create((set)=>({
-    //  ++++++++ Sesión activa ++++++
-    login: false,
-    setLogin:()=> set({login:true}),
+    //  ++++++++ Sesión activa ++++++ 
+    user:null,
+    setUser: (p)=>set({user:p}),
 
-    // verificar usuario en login 
-    user:{},
-    setUser: (p)=>set({user:p})
 
 
 }));

@@ -3,11 +3,11 @@ import styled from 'styled-components';
 const BtnRegresar = styled.button`
   text-align: center;
   border: none;
-  border-radius: 50%;
+  border-radius: 30%;
   cursor: pointer;
   display: flex;
   background: #0347F5;
-  
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 3.2rem;
@@ -17,7 +17,7 @@ const BtnRegresar = styled.button`
   .icon{
     width: 90%;
     height: 90%;
-    border-radius: 50%; 
+    border-radius: 20%; 
     color: #fff;
   }
 

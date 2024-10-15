@@ -2,7 +2,7 @@ import HeaderPage from "../Components/HeaderPage";
 import useStoreAPP from "../Store/Store";
 
 const ListaGasto = () => {
-    const {user,setUser}=useStoreAPP();
+    const {user}=useStoreAPP();
     console.log(user);
     
     return ( 
