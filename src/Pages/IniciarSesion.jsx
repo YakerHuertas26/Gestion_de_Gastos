@@ -13,7 +13,7 @@ import { useNavigate } from "react-router";
 
 
 const IniciarSesion = () => {
-    const {register,handleSubmit,watch,formState:{errors}}=useForm();
+    const {register,handleSubmit,formState:{errors}}=useForm();
     const navigate= useNavigate()
 
     const Login = handleSubmit(async (data)=>{

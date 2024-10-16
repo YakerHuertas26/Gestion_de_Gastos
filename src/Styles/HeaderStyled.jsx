@@ -7,7 +7,7 @@ const HeaderStyled = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 10vh;
-    
+    margin-bottom: 1rem;
     @media(max-width: 500px){ /* 950px */
         justify-content: space-between;
         height: 15vh;

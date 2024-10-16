@@ -44,11 +44,12 @@ const CoteienerInputandError= styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  
   span{
     color: red;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-left: 1rem;
-    font-weight: 400;
+    font-weight: 600;
 
   }
 
@@ -62,7 +63,8 @@ const ContentInput = styled.div`
   background: rgba(225,225,225, 0.6);
   position:relative;
   border-radius: 40rem;
-  width: 100%;
+  width: ${props=>props.$agregarGasto?'38%':'100%'};
+
    .contenedorIcono{
     
     width: 4rem;
@@ -87,15 +89,15 @@ const ContentInput = styled.div`
 `;
 
 const InputStyled = styled.input`
-  width: 80%;
+  width: ${props=>props.$agregarGasto?'100%':'80%'};
   height: 2.5rem;
-  /* border: 2px solid red; */
   border: none;
   background: transparent;
-  color: #000;
+  color: ${props=>props.$agregarGasto? '#FFF':'#000'};
   font-weight: 700;
   font-size: 1.6rem;
-  margin-left: 1rem;
+  margin-left:${props=>props.$agregarGasto?'none':'1rem'} ;
+  text-align:${props=>props.$agregarGasto&&'center'};
   &::placeholder{
     color: #fff;
     font-weight: 500;

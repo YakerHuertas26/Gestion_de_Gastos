@@ -7,9 +7,12 @@ const OndaStyled = styled.svg`
     position: fixed;
     bottom: 0;
     left: 0;
-    z-index: 0;
+    z-index: -1;
     path{
         fill: rgba(135,182,194,.1);
+    }
+    @media (max-width: 50rem) {
+        z-index: -1;
     }
 `
 

@@ -9,18 +9,17 @@ const Botton = styled(NavLink)`
       border-radius: 1rem;
       height: 100%;
       max-height: 4.5rem;
-      width: ${props=> props.$icono ? '16rem' : '16rem'};
-      font-size: 1.6rem;
+      width: ${props=> props.$icono ? '18rem' : '16rem'};
+      font-size: 1.8rem;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       justify-content: space-around;
       align-items: center;
       text-decoration: none;
-      .icono {
+      /* .icono {
           height: ${(props) => props.$iconoGrande ? '100%' : '1.2rem'};  /* 12px */
-          fill: white;
-      }
+          /* fill: white*/ 
       @media (max-width: 550px) {
       height: 3.4rem;
       width: 9.3rem;
