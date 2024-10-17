@@ -19,18 +19,16 @@ const FormularioGasto = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    .contentSelect{
+        width: 24rem;
+    }
     @media (max-width: 50rem) {
         width: 100%;
-        input{
-            font-size: 1.2rem;
-            width: 100%;
-            margin: 0;
-        }
-        .divImput1{
-            width: 65%;
-        }
+        .contentSelect{
+        width: 15rem;
     }
+    }
+        
 `;
 const HeaderForm = styled.div`
    /* border:  solid 2px green; */
@@ -56,8 +54,28 @@ const MainForm = styled.div`
   @media (max-width: 50rem) {
     width: 30rem;
   }
-  
 `;
 
+const Select = styled.select`
+    width: 95%;
+    height: 100%;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    font-size: 1.5rem;
+    color: #fff;
+    &:focus{
+        outline: none;
+    }
+`;
+const Opciones = styled.option`
+    font-size: 1.6rem;
+    background-color: #413a3a9f;
 
-export {ConteinerForm,FormularioGasto,HeaderForm,MainForm};
+    
+`;
+
+export {ConteinerForm,FormularioGasto,HeaderForm,MainForm,Select,Opciones};

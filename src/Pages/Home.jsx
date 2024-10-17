@@ -3,31 +3,49 @@ import { useForm } from "react-hook-form";
 import HeaderComponent from "../Components/Header";
 import { Boton } from "../Elements/E_Header";
 import Parrafo from "../Elements/ElementAside";
-import { Aside } from "../Styles/Aside";
-import { ConteinerForm, FormularioGasto, HeaderForm, MainForm } from "../Styles/FormularioAgregarGasto";
+import { Footer } from "../Styles/Aside";
+import { ConteinerForm, FormularioGasto, HeaderForm, MainForm, Opciones, Select } from "../Styles/FormularioAgregarGasto";
 import { ContentInput, CoteienerInputandError, InputStyled } from "../Styles/FormularioStyled";
 import { IoMdAdd } from "react-icons/io";
 
 const Home = () => {
-    const {register,handleSubmit,watch,formState:{errors}}=useForm()
+    const {register,handleSubmit,formState:{errors}}=useForm()
     const registrarGasto= handleSubmit((data)=>{
         console.log(data);
         
     })
+    // AOBJETOS DE CATEGORIAS 
+
+    const categiries=[
+        {id: 'comida', texto: 'Comida'},
+        {id: 'cuentas y pagos', texto: 'Cuentas y pagos'},
+        {id: 'hogar', texto: 'Hogar'},
+        {id: 'transporte', texto: 'Transporte'},
+        {id: 'ropa', texto: 'Ropa'},
+        {id: 'salud e higiene', texto: 'Salud e Higiene'},
+        {id: 'compras', texto: 'Compras'},
+        {id: 'diversion', texto: 'Diversion'}
+    ]
     return (
         <>
         <HeaderComponent />
+        
         <ConteinerForm>
-            <FormularioGasto onClick={registrarGasto}>
+            <FormularioGasto onSubmit={registrarGasto}>
                 <HeaderForm>
-                    <ContentInput $agregarGasto >
-                        <InputStyled 
-                        type="text"
-                        placeholder="CATEGORIA"
-                        $agregarGasto/>
-                    </ContentInput>
+                <ContentInput $agregarGasto className="contentSelect">
+                        <Select $agregarGasto {...register('categoria')}>
+                            {categiries.map((element)=>{
+                                return (
+                                    <Opciones key ={element.id} value={element.id}>{element.texto}</Opciones>
+                                )
+                            })}
+                            
+                        </Select>
+                </ContentInput>
+                    
 
-                    <ContentInput $agregarGasto className="divImput1">
+                    <ContentInput $agregarGasto className="contentSelect">
                         <InputStyled 
                         type="text"
                         placeholder="FECHA"
@@ -67,10 +85,11 @@ const Home = () => {
 
             </FormularioGasto>
         </ConteinerForm> 
-        <Aside>
+        
+        <Footer>
             <Parrafo description='TOTAL GASTADO EN EL MES ...'/> 
             <Parrafo description='$20'/>
-        </Aside>
+        </Footer>
         </>
 
      );

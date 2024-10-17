@@ -58,12 +58,12 @@ const ContentInput = styled.div`
   /* border: solid 2px red; */
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content:${props => props.$agregarGasto? 'center': 'space-between'};
   height: 3.6rem;
   background: rgba(225,225,225, 0.6);
   position:relative;
   border-radius: 40rem;
-  width: ${props=>props.$agregarGasto?'38%':'100%'};
+  width: ${props=>props.$agregarGasto?'35%':'100%'};
 
    .contenedorIcono{
     

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-const Aside = styled.div`
+const Footer = styled.footer`
   /* border: solid red 2px; */
   display: flex;
   align-items: center;
@@ -25,4 +25,4 @@ const ParrafoStyled = styled.p`
   }
 `;
 
-export {ParrafoStyled,Aside};
+export {ParrafoStyled,Footer};
