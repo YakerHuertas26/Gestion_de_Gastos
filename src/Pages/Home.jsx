@@ -8,7 +8,9 @@ import { ConteinerForm, FormularioGasto, HeaderForm, MainForm, Opciones, Select 
 import { ContentInput, CoteienerInputandError, InputStyled } from "../Styles/FormularioStyled";
 import { IoMdAdd } from "react-icons/io";
 import Calendario from "../Components/Calendario";
-
+import useStoreAPP from "../Store/Store";
+import { format } from 'date-fns'
+import { es } from 'date-fns/locale'
 const Home = () => {
     const {register,handleSubmit,formState:{errors}}=useForm()
     const registrarGasto= handleSubmit((data)=>{
@@ -27,6 +29,8 @@ const Home = () => {
         {id: 'compras', texto: 'Compras'},
         {id: 'diversion', texto: 'Diversion'}
     ]
+
+    const {fecha}= useStoreAPP()
     return (
         <>
         <HeaderComponent />
@@ -51,7 +55,8 @@ const Home = () => {
                         
                          <InputStyled 
                         type="text"
-                        placeholder="FECHA"
+                        readOnly
+                        value={format(fecha, `dd 'de' MMMM 'del' yyy`,{locale: es})}
                         $agregarGasto/>
                     </ContentInput> 
                    
