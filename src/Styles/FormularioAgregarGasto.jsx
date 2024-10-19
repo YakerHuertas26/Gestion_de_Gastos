@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const ConteinerForm = styled.div`
-    /* border:  solid 2px red; */
+   
     width: 70%;
     margin:  0 auto;
     height: 75%;
@@ -11,16 +11,16 @@ const ConteinerForm = styled.div`
   
 `;
 const FormularioGasto = styled.form`
-    /* border:  solid 2px red; */
+    /* border:  solid 2px green; */
     width: 90%;
     margin:  0 auto;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: space-evenly; */
     align-items: center;
     .contentSelect{
-        width: 24rem;
+        width: 20rem;
     }
     @media (max-width: 50rem) {
         width: 100%;
@@ -32,18 +32,20 @@ const FormularioGasto = styled.form`
 `;
 const HeaderForm = styled.div`
    /* border:  solid 2px green; */
-    width: 95%;
-    margin:  0 auto;
-    height: 20%; 
+    width: 90%;
+    margin-bottom: 10rem;
+    margin-top: 1rem;
+    height: 15%; 
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+    position: relative;
 `;
 const MainForm = styled.div`
   /* border:2px solid red; */
   width: 50rem;
-  height: 60%;
+  height: 40%;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2rem;

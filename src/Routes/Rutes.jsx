@@ -12,9 +12,10 @@ import { useEffect } from "react";
 import RutasProtejidas from "./RutasProtegidas";
     
 const Rutes = () => {
-    const {setUser,user}=useStoreAPP();
+    const {setUser}=useStoreAPP();
+
     useEffect(()=>{
-        const cancelarSuscripcion=onAuthStateChanged(auth,(usuario)=>{
+        onAuthStateChanged(auth,(usuario)=>{
             setUser(usuario)
         });
     },[]) 

@@ -11,6 +11,7 @@ import Calendario from "../Components/Calendario";
 import useStoreAPP from "../Store/Store";
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
+import ContenedorInputFecha from "../Styles/Calendario";
 const Home = () => {
     const {register,handleSubmit,formState:{errors}}=useForm()
     const registrarGasto= handleSubmit((data)=>{
@@ -30,7 +31,11 @@ const Home = () => {
         {id: 'diversion', texto: 'Diversion'}
     ]
 
-    const {fecha}= useStoreAPP()
+    const {fecha,mostrarCalendario,setMostarCalendario}= useStoreAPP();
+    // funcion formato fecha
+    const formatFecha=(fecha=new Date())=>{
+        return format(fecha, `dd 'de' MMMM 'del' yyy`,{locale: es})
+    }
     return (
         <>
         <HeaderComponent />
@@ -38,8 +43,8 @@ const Home = () => {
         <ConteinerForm>
             <FormularioGasto onSubmit={registrarGasto}>
                 <HeaderForm>
-                    <ContentInput $agregarGasto className="contentSelect">
-                            <Select $agregarGasto {...register('categoria')}>
+                    <ContentInput className="contentSelect">
+                            <Select  {...register('categoria')}>
                                 {categiries.map((element)=>{
                                     return (
                                         <Opciones key ={element.id} value={element.id}>{element.texto}</Opciones>
@@ -50,21 +55,20 @@ const Home = () => {
                             </Select>
                     </ContentInput>
                     
-                    
-                     <ContentInput $agregarGasto className="contentSelect">
-                        
+                     <ContenedorInputFecha onClick={setMostarCalendario}  >
                          <InputStyled 
                         type="text"
                         readOnly
-                        value={format(fecha, `dd 'de' MMMM 'del' yyy`,{locale: es})}
-                        $agregarGasto/>
-                    </ContentInput> 
-                   
+                        value={formatFecha(fecha)}
+                        $agregarGasto
+                        
+                        {...register('dia')}/>
+                         {mostrarCalendario&& <Calendario />}
+                    </ContenedorInputFecha> 
                 </HeaderForm>
-                    <Calendario/>
                 <MainForm >
                      <CoteienerInputandError>
-                        <ContentInput  >
+                        <ContentInput $agregarGasto  >
                             <InputStyled 
                             type="text"
                             placeholder="DESCRIPCIÓN"
@@ -75,7 +79,7 @@ const Home = () => {
                      </CoteienerInputandError>
 
                      <CoteienerInputandError>
-                        <ContentInput  >
+                        <ContentInput $agregarGasto  >
                             <InputStyled 
                             type="text"
                             placeholder="MONTO"

@@ -4,19 +4,23 @@ import useStoreAPP from "../Store/Store";
 import { es } from 'date-fns/locale'
 
 const Calendario = () => {
-    const {fecha,setFecha}=useStoreAPP();
+    const {fecha,setFecha,selectFecha}=useStoreAPP();
+    
     
     return ( 
         
         
-        <div>
-            <DayPicker
+        
+            <DayPicker 
                mode="single"
                selected={fecha}
                onSelect={setFecha}
                locale= {es}
+               onDayClick={selectFecha}
             />
-        </div>
+
+       
+       
      );
 }
  

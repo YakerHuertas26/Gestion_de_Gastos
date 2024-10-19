@@ -55,7 +55,7 @@ const CoteienerInputandError= styled.div`
 
 `
 const ContentInput = styled.div`
-  /* border: solid 2px red; */
+  
   display: flex;
   align-items: center;
   justify-content:${props => props.$agregarGasto? 'center': 'space-between'};
@@ -63,7 +63,7 @@ const ContentInput = styled.div`
   background: rgba(225,225,225, 0.6);
   position:relative;
   border-radius: 40rem;
-  width: ${props=>props.$agregarGasto?'35%':'100%'};
+  width:100%;
 
    .contenedorIcono{
     
@@ -90,6 +90,7 @@ const ContentInput = styled.div`
 
 const InputStyled = styled.input`
   width: ${props=>props.$agregarGasto?'100%':'80%'};
+  border-radius:${props=>props.$agregarGasto?'2rem':'0'} ;
   height: 2.5rem;
   border: none;
   background: transparent;
