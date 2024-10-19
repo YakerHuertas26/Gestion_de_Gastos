@@ -58,6 +58,7 @@ const CrearCuenta = () => {
         }
         
     })
+    
     return ( 
        <ContenedorSesion>
             <HeaderStyled>
@@ -93,8 +94,8 @@ const CrearCuenta = () => {
 
                     <CoteienerInputandError>
                         <ContentInput>
-                            <InputStyled type="password" placeholder="Contraseña"
-                            {...register ('confirPassword',{required:{value:true, message:"Completar Campo"},
+                            <InputStyled type="password" placeholder="Confirmar Contraseña"
+                            {...register ('confirmarPassword',{required:{value:true, message:"Completar Campo"},
                             validate:value=> value===watch('passwordCreateAccount') || "Las contraseñas no coinciden"
                                 
                             })}

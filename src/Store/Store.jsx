@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { auth } from "../FireBase/Config";
 
 
 const useStoreAPP= create((set)=>({
@@ -7,6 +6,9 @@ const useStoreAPP= create((set)=>({
     user:null,
     setUser: (p)=>set({user:p}),
 
+    // +++++ Para mostrar el calendario
+    fecha:new Date(),
+    setFecha:(a)=>set({fecha:a})
 
 
 }));

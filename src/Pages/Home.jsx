@@ -7,6 +7,7 @@ import { Footer } from "../Styles/Aside";
 import { ConteinerForm, FormularioGasto, HeaderForm, MainForm, Opciones, Select } from "../Styles/FormularioAgregarGasto";
 import { ContentInput, CoteienerInputandError, InputStyled } from "../Styles/FormularioStyled";
 import { IoMdAdd } from "react-icons/io";
+import Calendario from "../Components/Calendario";
 
 const Home = () => {
     const {register,handleSubmit,formState:{errors}}=useForm()
@@ -33,25 +34,29 @@ const Home = () => {
         <ConteinerForm>
             <FormularioGasto onSubmit={registrarGasto}>
                 <HeaderForm>
-                <ContentInput $agregarGasto className="contentSelect">
-                        <Select $agregarGasto {...register('categoria')}>
-                            {categiries.map((element)=>{
-                                return (
-                                    <Opciones key ={element.id} value={element.id}>{element.texto}</Opciones>
-                                )
-                            })}
-                            
-                        </Select>
-                </ContentInput>
-                    
-
                     <ContentInput $agregarGasto className="contentSelect">
-                        <InputStyled 
+                            <Select $agregarGasto {...register('categoria')}>
+                                {categiries.map((element)=>{
+                                    return (
+                                        <Opciones key ={element.id} value={element.id}>{element.texto}</Opciones>
+                                        
+                                    )
+                                })}
+                                
+                            </Select>
+                    </ContentInput>
+                    
+                    
+                     <ContentInput $agregarGasto className="contentSelect">
+                        
+                         <InputStyled 
                         type="text"
                         placeholder="FECHA"
                         $agregarGasto/>
-                    </ContentInput>
+                    </ContentInput> 
+                   
                 </HeaderForm>
+                    <Calendario/>
                 <MainForm >
                      <CoteienerInputandError>
                         <ContentInput  >
