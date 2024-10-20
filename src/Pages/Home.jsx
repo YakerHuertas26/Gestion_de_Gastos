@@ -13,9 +13,14 @@ import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import ContenedorInputFecha from "../Styles/Calendario";
 const Home = () => {
+    const {fecha,mostrarCalendario,setMostarCalendario}= useStoreAPP();
+    // funcion formato fecha
+    const formatFecha=(fecha=new Date())=>{
+        return format(fecha, `dd 'de' MMMM 'del' yyy`,{locale: es})
+    }
     const {register,handleSubmit,formState:{errors}}=useForm()
     const registrarGasto= handleSubmit((data)=>{
-        console.log(data);
+        console.log(data,fecha);
         
     })
     // AOBJETOS DE CATEGORIAS 
@@ -31,11 +36,7 @@ const Home = () => {
         {id: 'diversion', texto: 'Diversion'}
     ]
 
-    const {fecha,mostrarCalendario,setMostarCalendario}= useStoreAPP();
-    // funcion formato fecha
-    const formatFecha=(fecha=new Date())=>{
-        return format(fecha, `dd 'de' MMMM 'del' yyy`,{locale: es})
-    }
+    
     return (
         <>
         <HeaderComponent />

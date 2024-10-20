@@ -4,8 +4,10 @@ import useStoreAPP from "../Store/Store";
 
 const RutasProtejidas = ({children}) => {
     
-    const {user}=useStoreAPP();
-
+    const {user,loading}=useStoreAPP();
+    if (loading) {
+        return <p>CARGANDO ....</p>
+    }
     if (!user) {
         return <Navigate to="../Iniciar_sesion" /> 
     }

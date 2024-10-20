@@ -10,23 +10,27 @@ import useStoreAPP from "../Store/Store";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import RutasProtejidas from "./RutasProtegidas";
+import RutasPublicas from "./RutasPublicas";
     
 const Rutes = () => {
-    const {setUser}=useStoreAPP();
+    const {setUser,user}=useStoreAPP();
 
-    useEffect(()=>{
-        onAuthStateChanged(auth,(usuario)=>{
-            setUser(usuario)
+    useEffect( ()=>{
+         const sesionActive= onAuthStateChanged(auth, (usuario)=>{
+                setUser(usuario)
+            
         });
+        return ()=> sesionActive();
     },[]) 
-
+   
+    
     return ( 
         
         <BrowserRouter>
             <Routes>
                 {/* rutas publicas */}
-                <Route path="Iniciar_sesion" element={<IniciarSesion/>} />
-                <Route path="Crear_cuenta" element={<CrearCuenta/>} />
+                <Route path="Iniciar_sesion" element={<RutasPublicas><IniciarSesion/></RutasPublicas>} />
+                <Route path="Crear_cuenta" element={<RutasPublicas><CrearCuenta/></RutasPublicas>} />
 
 
                 <Route path="/" element={<RutasProtejidas><Home/></RutasProtejidas>} />

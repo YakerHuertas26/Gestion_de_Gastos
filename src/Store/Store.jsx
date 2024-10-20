@@ -1,10 +1,15 @@
 import { create } from "zustand";
+import { persist,createJSONStorage  } from "zustand/middleware";
 
 
 const useStoreAPP= create((set)=>({
     //  ++++++++ Sesión activa ++++++ 
     user:null,
-    setUser: (p)=>set({user:p}),
+    loading:true,
+    setUser: (p)=>set({user:p,loading:false}),
+    // setLoading:()=> set({user:null,loading:false}),
+
+    
 
     // +++++ Para mostrar el calendario
     fecha:new Date(),
