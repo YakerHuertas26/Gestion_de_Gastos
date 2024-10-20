@@ -2,8 +2,6 @@
 import { useForm } from "react-hook-form";
 import HeaderComponent from "../Components/Header";
 import { Boton } from "../Elements/E_Header";
-import Parrafo from "../Elements/ElementAside";
-import { Footer } from "../Styles/Aside";
 import { ConteinerForm, FormularioGasto, HeaderForm, MainForm, Opciones, Select } from "../Styles/FormularioAgregarGasto";
 import { ContentInput, CoteienerInputandError, InputStyled } from "../Styles/FormularioStyled";
 import { IoMdAdd } from "react-icons/io";
@@ -14,9 +12,10 @@ import { es } from 'date-fns/locale'
 import ContenedorInputFecha from "../Styles/Calendario";
 // import AgregarGasto from "../FireBase/Gastos";
 import { getUnixTime } from 'date-fns'
-
+import {FooterPage} from "../Elements/ElementFooter"
 import AgregarGasto from "../FireBase/Gastos";
 import { Toaster,toast } from 'sonner';
+
 
 
 const Home = () => {
@@ -122,10 +121,8 @@ const Home = () => {
             </FormularioGasto>
         </ConteinerForm> 
         
-        <Footer>
-            <Parrafo description='TOTAL GASTADO EN EL MES ...'/> 
-            <Parrafo description='$20'/>
-        </Footer>
+        
+            <FooterPage description="69"/> 
         <Toaster expand visibleToasts={2} richColors/>
         </>
      );
