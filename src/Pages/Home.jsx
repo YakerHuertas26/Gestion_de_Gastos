@@ -12,16 +12,37 @@ import useStoreAPP from "../Store/Store";
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import ContenedorInputFecha from "../Styles/Calendario";
+// import AgregarGasto from "../FireBase/Gastos";
+import { getUnixTime } from 'date-fns'
+
+import AgregarGasto from "../FireBase/Gastos";
+import { Toaster,toast } from 'sonner';
+
+
 const Home = () => {
-    const {fecha,mostrarCalendario,setMostarCalendario}= useStoreAPP();
+    const {fecha,mostrarCalendario,setMostarCalendario,user}= useStoreAPP();
     // funcion formato fecha
     const formatFecha=(fecha=new Date())=>{
         return format(fecha, `dd 'de' MMMM 'del' yyy`,{locale: es})
     }
-    const {register,handleSubmit,formState:{errors}}=useForm()
-    const registrarGasto= handleSubmit((data)=>{
-        console.log(data,fecha);
+    const {register,handleSubmit,reset,formState:{errors}}=useForm()
+    
+    
+    const registrarGasto= handleSubmit(async (data)=>{
+        const categoria=data.categoria;
+        const descipcion= data.description;        ;
+        const monto= parseFloat(data.monto).toFixed(2);
+        const usuarioID=user.uid
+        const fechaSegundos = getUnixTime(fecha);
         
+        await AgregarGasto(categoria,descipcion, fechaSegundos,monto,usuarioID)
+
+        toast.success('Gasto agregado correctamente',{
+            duration: 1000,
+            position: 'top-center'
+        })
+        reset();
+
     })
     // AOBJETOS DE CATEGORIAS 
 
@@ -105,8 +126,8 @@ const Home = () => {
             <Parrafo description='TOTAL GASTADO EN EL MES ...'/> 
             <Parrafo description='$20'/>
         </Footer>
+        <Toaster expand visibleToasts={2} richColors/>
         </>
-
      );
 }
  
