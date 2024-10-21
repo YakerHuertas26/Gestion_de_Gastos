@@ -10,6 +10,8 @@ import useStoreAPP from "../Store/Store";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import RutasProtejidas from "./RutasProtegidas";
+import EditarGasto from "../Pages/EditarGasto";
+
 
     
 const Rutes = () => {
@@ -22,7 +24,7 @@ const Rutes = () => {
         });
         return ()=> sesionActive();
     },[]) 
-   
+
     
     return ( 
         
@@ -36,6 +38,7 @@ const Rutes = () => {
                 <Route path="/" element={<RutasProtejidas><Home/></RutasProtejidas>} />
                 <Route path="Categoria" element={<RutasProtejidas> <CategoriaGasto/></RutasProtejidas>} />
                 <Route path="Lista_gasto" element={<RutasProtejidas> <ListaGasto/></RutasProtejidas>} />
+                <Route path="Editar_gasto/:id" element={<RutasProtejidas><EditarGasto /></RutasProtejidas>} />
                 
                 <Route path="*"  element={<Error404/>}/>
             </Routes>
@@ -43,4 +46,4 @@ const Rutes = () => {
     );
 }
 
-export default Rutes;
+export default Rutes; 

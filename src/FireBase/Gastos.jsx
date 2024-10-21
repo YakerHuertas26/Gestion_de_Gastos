@@ -36,7 +36,7 @@ const ObtenerListaDeGasto = () => {
             
          }))
       })
-      return()=> obtenerLista();
+      return ()=> obtenerLista();
    },[user])
 
     return ( 

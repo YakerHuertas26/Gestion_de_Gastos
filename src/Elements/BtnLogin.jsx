@@ -12,12 +12,13 @@ const CloseLogin = () => {
 
     const closesetion= ()=>{
         try {
-             signOut(auth)
+            signOut(auth)
             navigate('Iniciar_sesion')
         } catch (error) {
             console.log(error);
               
         }
+        
         
     }
     return (       

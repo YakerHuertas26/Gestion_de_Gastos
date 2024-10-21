@@ -19,4 +19,4 @@ const FooterPage = ({description}) => {
      );
 }
 
-export {FooterPage} ;
+export {FooterPage,FormatoMoneda} ;
