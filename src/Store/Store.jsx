@@ -18,6 +18,13 @@ const useStoreAPP= create((set)=>({
     //Mostrar calentario
     mostrarCalendario:false,
     setMostarCalendario:()=> set((state)=>({mostrarCalendario:!state.mostrarCalendario})) ,
-    selectFecha:()=>set({mostrarCalendario:false})
+    selectFecha:()=>set({mostrarCalendario:false}),
+
+    // ++++ OBTENER UN MONTO 
+    monto:69,
+
+    // OBTENER LISTA DE GASTOS
+    listaGasto:[],
+    setListaGasto:(lista)=>set({listaGasto:[lista]})
 }));
  export default useStoreAPP;

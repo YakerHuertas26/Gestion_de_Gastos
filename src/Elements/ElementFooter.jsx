@@ -1,3 +1,4 @@
+import useStoreAPP from "../Store/Store";
 import { Footer, ParrafoStyled } from "../Styles/Aside";
 
 // funcion formato moneda
@@ -9,10 +10,11 @@ const FormatoMoneda = (cantidad) => {
  
 
 const FooterPage = ({description}) => {
+    const {monto}= useStoreAPP();
     return ( 
         <Footer>
             <ParrafoStyled>TOTAL GASTADO EN EL MES ...</ParrafoStyled>
-            <ParrafoStyled> {FormatoMoneda(description)}</ParrafoStyled>
+            <ParrafoStyled> {FormatoMoneda(monto)}</ParrafoStyled>
         </Footer>
      );
 }

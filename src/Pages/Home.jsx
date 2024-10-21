@@ -13,7 +13,7 @@ import ContenedorInputFecha from "../Styles/Calendario";
 // import AgregarGasto from "../FireBase/Gastos";
 import { getUnixTime } from 'date-fns'
 import {FooterPage} from "../Elements/ElementFooter"
-import AgregarGasto from "../FireBase/Gastos";
+import {AgregarGasto} from "../FireBase/Gastos";
 import { Toaster,toast } from 'sonner';
 
 
@@ -122,7 +122,7 @@ const Home = () => {
         </ConteinerForm> 
         
         
-            <FooterPage description="69"/> 
+            <FooterPage /> 
         <Toaster expand visibleToasts={2} richColors/>
         </>
      );

@@ -10,12 +10,13 @@ const CloseLogin = () => {
 
     const navigate=  useNavigate();
 
-    const closesetion= async()=>{
+    const closesetion= ()=>{
         try {
-            await signOut(auth)
+             signOut(auth)
             navigate('Iniciar_sesion')
         } catch (error) {
-            
+            console.log(error);
+              
         }
         
     }
