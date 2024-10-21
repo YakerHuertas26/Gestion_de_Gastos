@@ -21,16 +21,23 @@ const AgregarGasto = (categoria,descipcion,fechaSegundos,monto,usuarioID) => {
 }
 
 const ObtenerListaDeGasto = () => {
-   const {listaGasto,setListaGasto}=useStoreAPP();
+   const {listaGasto,setListaGasto,user}=useStoreAPP();
 
    useEffect(()=>{
-      const lista= async ()=>{
-         (await getDocs(collection(dataBase,'gastos'))).forEach((doc)=>{
-            setListaGasto(doc.data());
-         })
-      }
-      return ()=> lista()
-   },[])
+      const consulta= query(  collection(dataBase,'gastos'),
+      where('usuarioID','==',user.uid),
+      orderBy('fechaSegundo','desc'),
+      limit(10));
+
+      // función para obtener la lista con la consulta 
+      const obtenerLista= onSnapshot(consulta,(doc)=>{
+         setListaGasto(doc.docs.map((gasto)=>{
+            return{...gasto.data(),id:gasto.id}
+            
+         }))
+      })
+      return()=> obtenerLista();
+   },[user])
 
     return ( 
          [listaGasto]

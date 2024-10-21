@@ -25,6 +25,6 @@ const useStoreAPP= create((set)=>({
 
     // OBTENER LISTA DE GASTOS
     listaGasto:[],
-    setListaGasto:(lista)=>set({listaGasto:[lista]})
+    setListaGasto:(lista)=>set({listaGasto:lista})
 }));
  export default useStoreAPP;
