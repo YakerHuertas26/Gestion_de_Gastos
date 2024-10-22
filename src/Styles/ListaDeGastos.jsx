@@ -2,13 +2,21 @@ import styled from "styled-components";
 
 
 const Lista = styled.ul`
+  /* border: solid 2px red; */
   list-style: none;
   padding: 0 2.5rem; /* 40px */
-  height: 100%;
+  height: 78vh;
+  width: 95%;
+  margin: 0 auto;
   overflow-y: auto;
+  scrollbar-width: none;
+  border-radius: 2rem;
+
+  background: rgba(255, 255, 255, 0.1);
 
   li {
     grid-template-columns: 1fr 1fr 1fr auto;
+    
   }
 
   @media (max-width: 50rem) {
@@ -21,10 +29,11 @@ const Lista = styled.ul`
 `;
 
 const ElementoLista = styled.li`
+  /* border: solid 2px green; */
   padding: 1.25rem 0; /* 20px */
   /* border-bottom: 2px solid #f2f2f2; */
   display: grid;
-  gap: 0.31rem; /* 5px */
+  gap: 4rem; /* 5px */
   justify-content: space-between;
 
   & > div {
@@ -39,33 +48,16 @@ const ElementoLista = styled.li`
   }
 `;
 
-const ListaDeCategorias = styled.ul`
-  list-style: none;
-  padding: 0 2.5rem; /* 40px */
-  height: 100%;
-  overflow-y: auto;
-`;
 
-const ElementoListaCategorias = styled.li`
-  padding: 1.25rem 0; /* 20px */
-  border-bottom: 2px solid #f2f2f2;
-  display: flex;
-  justify-content: space-between;
-`;
 
 const Categoria = styled.div`
+/* border: solid 2px red; */
   font-weight: 500;
   font-size: 1.6rem; /* 20px */
   text-transform: uppercase;
   display: flex;
   align-items: center;
 
-  svg {
-    width: 3.12rem; /* 50px */
-    height: auto;
-    margin-right: 1.25rem; /* 20px */
-    border-radius: 0.62rem; /* 10px */
-  }
 
   @media (max-width: 50rem) {
     /* 80px */
@@ -74,6 +66,7 @@ const Categoria = styled.div`
 `;
 
 const Descripcion = styled.div`
+/* border: solid 2px red; */
   justify-content: center;
   font-size: 1.6rem;
   text-transform: capitalize;
@@ -190,6 +183,6 @@ const BotonCargarMas = styled.button`
 `;
 
 export {
-    Lista,ElementoLista,ListaDeCategorias,ElementoListaCategorias,Categoria,Descripcion,Valor,
+    Lista,ElementoLista,Categoria,Descripcion,Valor,
     Fecha,ContenedorBotones,BotonAccion,BotonCargarMas,ContenedorBotonCentral,ContenedorSubtitulo,Subtitulo,
 };

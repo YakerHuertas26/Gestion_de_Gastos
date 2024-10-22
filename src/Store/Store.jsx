@@ -25,6 +25,14 @@ const useStoreAPP= create((set)=>({
 
     // OBTENER LISTA DE GASTOS
     listaGasto:null,
-    setListaGasto:(lista)=>set({listaGasto:lista})
+    setListaGasto:(lista)=>set({listaGasto:lista}),
+
+    // +++++++OBTENER EL ULTIMO GASTO
+    ultimoGasto:null,
+    setUltimoGasto:(ulGasto)=>set({ultimoGasto:ulGasto}),
+
+    // ++++ SABER SI TENGO MÁS CONTENIDO POR MOSTRAR 
+    mostrarMas:false,
+    setMostrarMas:(p)=>set({mostrarMas:p})
 }));
  export default useStoreAPP;

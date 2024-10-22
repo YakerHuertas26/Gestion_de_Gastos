@@ -11,7 +11,7 @@ import { es } from "date-fns/locale";
 
 const ListaGasto = () => {
     const {user}= useStoreAPP();
-    const [listDeGasto]= ObtenerListaDeGasto();
+    const [listDeGasto,ObtenerMasListaGastos,mostrarMas]= ObtenerListaDeGasto();
 
     // regresar el formato de la fecha
     const RegresarFormato= (fecha)=>{
@@ -63,11 +63,14 @@ return(
                     </div>
                 )
             })}
-                <ContenedorBotonCentral>
-                    <BotonCargarMas>
-                        Cargar Más
-                    </BotonCargarMas>
-                </ContenedorBotonCentral>
+                {mostrarMas && 
+                    <ContenedorBotonCentral>
+                        <BotonCargarMas onClick={ObtenerMasListaGastos}>
+                            Cargar Más
+                        </BotonCargarMas>
+                    </ContenedorBotonCentral>
+                }
+                
 
                 {
                     listDeGasto.length===0 &&
