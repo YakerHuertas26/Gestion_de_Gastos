@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import useStoreAPP from "../Store/Store";
 import { dataBase } from "./Config";
 import { collection, addDoc,getDocs,doc, onSnapshot,query,orderBy,where,limit, startAfter } from "firebase/firestore";
+import {deleteDoc } from "firebase/firestore";
+import { toast } from "sonner";
 
 
 const AgregarGasto = (categoria,descipcion,fechaSegundos,monto,usuarioID) => {
@@ -84,7 +86,22 @@ const ObtenerListaDeGasto = () => {
     );
 }
 
+const BorrarGasto = async (id) => {
+   try {
+      await deleteDoc(doc(dataBase,'gastos',id))
+     //  crear una alerta
+     toast.success('Borrado correctamente',{
+      duration:1000,
+      position:"top-center"
+     })
+  
+   } catch (error) {
+      console.log(error);
+      toast.error('Ocurrio un error',{
+         duration:1000,
+         position:"top-center"
+        })
+   }
+}
 
-
- 
-export {AgregarGasto,ObtenerListaDeGasto};
+export {AgregarGasto,ObtenerListaDeGasto,BorrarGasto};

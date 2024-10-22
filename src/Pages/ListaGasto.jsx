@@ -1,6 +1,6 @@
 import HeaderPage from "../Components/HeaderPage";
 import { FooterPage, FormatoMoneda } from "../Elements/ElementFooter";
-import { ObtenerListaDeGasto } from "../FireBase/Gastos";
+import { BorrarGasto, ObtenerListaDeGasto } from "../FireBase/Gastos";
 import useStoreAPP from "../Store/Store";
 import { BotonAccion, BotonCargarMas, Categoria, ContenedorBotonCentral, ContenedorBotones, ContenedorSubtitulo, Descripcion, ElementoLista, Fecha, Lista, Subtitulo, Valor } from "../Styles/ListaDeGastos";
 import { TiEdit } from "react-icons/ti";
@@ -8,6 +8,9 @@ import { MdOutlineDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { format, fromUnixTime } from 'date-fns'
 import { es } from "date-fns/locale";
+import { Toaster } from "sonner";
+import { Boton } from "../Elements/E_Header";
+
 
 const ListaGasto = () => {
     const {user}= useStoreAPP();
@@ -56,8 +59,14 @@ return(
                             {FormatoMoneda(gasto.monto)}
                         </Valor>
                         <ContenedorBotones>
-                            <BotonAccion as={Link} to={`../Editar_gasto/${gasto.id}`}><TiEdit/></BotonAccion>
-                            <BotonAccion><MdOutlineDeleteForever/></BotonAccion>
+                            <BotonAccion as={Link} to={`../Editar_gasto/${gasto.id}`}>
+                                <TiEdit/>
+                            </BotonAccion>
+
+                            <BotonAccion onClick={()=>BorrarGasto(gasto.id)}>
+                                <MdOutlineDeleteForever/>
+                            </BotonAccion>
+                            <Toaster  expand richColors visibleToasts={2}/>
                         </ContenedorBotones>
                     </ElementoLista>
                     </div>
@@ -74,9 +83,12 @@ return(
 
                 {
                     listDeGasto.length===0 &&
+                    <>
                     <ContenedorSubtitulo>
                         <Subtitulo>No hay gastos</Subtitulo>
+                    <Boton desciption='Agregar Gasto' link="/"/>
                     </ContenedorSubtitulo>
+                    </>
                 }
          </Lista>
          <FooterPage/>

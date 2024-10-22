@@ -2,7 +2,6 @@ import { signOut } from "firebase/auth";
 import { auth } from "../FireBase/Config";
 import { BtnRegresar } from "../Styles/BotonRegresar";
 import { MdLogin } from "react-icons/md";
-import useStoreAPP from "../Store/Store";
 import { useNavigate } from "react-router";
 
 
@@ -10,16 +9,15 @@ const CloseLogin = () => {
 
     const navigate=  useNavigate();
 
-    const closesetion= ()=>{
+    const closesetion=()=>{
         try {
             signOut(auth)
             navigate('Iniciar_sesion')
-        } catch (error) {
-            console.log(error);
-              
         }
-        
-        
+        catch (error) {
+            console.log(error);
+        }
+
     }
     return (       
         <BtnRegresar onClick={closesetion}>
