@@ -1,4 +1,4 @@
-import HeaderPage from "../Components/HeaderPage";
+import {HeaderPage} from "../Components/HeaderPage";
 import { FooterPage, FormatoMoneda } from "../Elements/ElementFooter";
 import { BorrarGasto, ObtenerListaDeGasto } from "../FireBase/Gastos";
 import useStoreAPP from "../Store/Store";
@@ -41,7 +41,7 @@ return(
         <span>Cargando ...</span>
          :
          <>
-         <HeaderPage titulo="Lista de Gastos"/>
+         <HeaderPage titulo="Lista de Gastos" ruta="/" />
          <Lista>
             {listDeGasto.map((gasto,index)=>{
                 return(

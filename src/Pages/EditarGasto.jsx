@@ -1,6 +1,6 @@
 
 import FormularioGastos from "../Components/FormularioGastos";
-import HeaderPage from "../Components/HeaderPage";
+import { HeaderPageEditar } from "../Components/HeaderPage";
 import { FooterPage } from "../Elements/ElementFooter";
 // para poder extraer el id del link 
 import { useParams } from "react-router-dom";
@@ -10,15 +10,13 @@ import { ObtenerUnGasto } from "../FireBase/Gastos";
 const EditarGasto = () => {
     // extraigo el id
     const {id}= useParams();
-   const [datos]=ObtenerUnGasto(id);
-   console.log(datos.data().categoria);
-   
+   const [datosEdit]=ObtenerUnGasto(id);
    
    
     return ( 
         <>
-        <HeaderPage titulo="Editar Gasto"/>
-        <FormularioGastos/>
+        <HeaderPageEditar titulo="Editar Gasto"/>
+        <FormularioGastos datosEdit={datosEdit}/>
         <FooterPage />
         </>
      );

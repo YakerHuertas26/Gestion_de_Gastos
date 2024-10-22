@@ -1,4 +1,4 @@
-import HeaderPage from "../Components/HeaderPage";
+import {HeaderPage} from "../Components/HeaderPage";
 import useStoreAPP from "../Store/Store";
 
 const CategoriaGasto = () => {

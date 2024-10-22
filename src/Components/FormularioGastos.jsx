@@ -12,9 +12,10 @@ import ContenedorInputFecha from "../Styles/Calendario";
 import { getUnixTime } from 'date-fns'
 import {AgregarGasto} from "../FireBase/Gastos";
 import { toast } from 'sonner';
+import { useEffect } from "react";
 
 
-const FormularioGastos = () => {
+const FormularioGastos = ({datosEdit}) => {
     const {fecha,mostrarCalendario,setMostarCalendario,user}= useStoreAPP();
     // funcion formato fecha
     const formatFecha=(fecha=new Date())=>{
@@ -22,13 +23,15 @@ const FormularioGastos = () => {
     }
     const {register,handleSubmit,reset,formState:{errors}}=useForm()
     
+    // variables de los gastos
+    let categoria,descipcion,monto,usuarioID,fechaSegundos
     
     const registrarGasto= handleSubmit(async (data)=>{
-        const categoria=data.categoria;
-        const descipcion= data.description;        ;
-        const monto= parseFloat(data.monto).toFixed(2);
-        const usuarioID=user.uid
-        const fechaSegundos = getUnixTime(fecha);
+        categoria=data.categoria;
+        descipcion= data.description;        ;
+        monto= parseFloat(data.monto).toFixed(2);
+        usuarioID=user.uid
+        fechaSegundos = getUnixTime(fecha);
         
         await AgregarGasto(categoria,descipcion, fechaSegundos,monto,usuarioID)
 
@@ -51,12 +54,33 @@ const FormularioGastos = () => {
         {id: 'compras', texto: 'Compras'},
         {id: 'diversion', texto: 'Diversion'}
     ]
+
+    // ++++++ EDITAR GASTO++++
+    //  verificar si hay un gastoen un formulario solo una vez 
+    useEffect(()=>{
+        if (datosEdit) {
+            console.log(datosEdit.data());
+            
+            // verificar el gasto del mismo usurio
+            if (user.uid==datosEdit.data().usuarioID) {
+                reset({
+                    categoria:datosEdit.data().categoria,
+                    description:datosEdit.data().descipcion,               
+                    monto:parseFloat(datosEdit.data().monto).toFixed(2),
+                    usuarioID:datosEdit.data().usuarioID,
+                    fechaSegundos:getUnixTime(datosEdit.data().fechaSegundo)
+                })    
+            }
+        }
+    },[datosEdit,reset, user])
+
     return ( 
         <ConteinerForm>
         <FormularioGasto onSubmit={registrarGasto}>
             <HeaderForm>
                 <ContentInput className="contentSelect">
-                        <Select  {...register('categoria')}>
+                        <Select  {...register('categoria')}
+                         >
                             {categiries.map((element)=>{
                                 return (
                                     <Opciones key ={element.id} value={element.id}>{element.texto}</Opciones>
