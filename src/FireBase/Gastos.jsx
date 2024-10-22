@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import useStoreAPP from "../Store/Store";
 import { dataBase } from "./Config";
-import { collection, addDoc,getDocs,doc, onSnapshot,query,orderBy,where,limit, startAfter } from "firebase/firestore";
+import { collection, addDoc,getDocs,doc, onSnapshot,query,orderBy,where,limit, startAfter, getDoc } from "firebase/firestore";
 import {deleteDoc } from "firebase/firestore";
 import { toast } from "sonner";
+import { useNavigate } from "react-router";
 
 
 const AgregarGasto = (categoria,descipcion,fechaSegundos,monto,usuarioID) => {
@@ -104,4 +105,28 @@ const BorrarGasto = async (id) => {
    }
 }
 
-export {AgregarGasto,ObtenerListaDeGasto,BorrarGasto};
+// función obtener un gasto por ID para editar
+const ObtenerUnGasto=  (id)=>{
+   const navigate= useNavigate()
+   const {editGasto,setEditGasto}=useStoreAPP();
+
+   // la conexioón a la bd se realiza una vez por eso es useeffect
+   useEffect(()=>{
+      const ObtenerDatos= async ()=>{
+         const docuement= await getDoc(doc(dataBase,"gastos",id))
+         //  verificar si el dato exite
+         if (docuement.exists()) {
+            setEditGasto(docuement)
+         }
+         else{
+            navigate("/Lista_gasto")
+         }
+      }
+      return ()=> ObtenerDatos()
+   },[])
+
+   
+   return [editGasto];
+}
+
+export {AgregarGasto,ObtenerListaDeGasto,BorrarGasto,ObtenerUnGasto};

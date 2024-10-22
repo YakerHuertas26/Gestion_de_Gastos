@@ -36,9 +36,9 @@ const Rutes = () => {
 
                 {/* rutas protegidas */}
                 <Route path="/" element={<RutasProtejidas><Home/></RutasProtejidas>} />
-                <Route path="Categoria" element={<RutasProtejidas> <CategoriaGasto/></RutasProtejidas>} />
-                <Route path="Lista_gasto" element={<RutasProtejidas> <ListaGasto/></RutasProtejidas>} />
-                <Route path="Editar_gasto/:id" element={<RutasProtejidas><EditarGasto /></RutasProtejidas>} />
+                <Route path="/Categoria" element={<RutasProtejidas> <CategoriaGasto/></RutasProtejidas>} />
+                <Route path="/Lista_gasto" element={<RutasProtejidas> <ListaGasto/></RutasProtejidas>} />
+                <Route path="/Editar_gasto/:id" element={<RutasProtejidas><EditarGasto /></RutasProtejidas>} />
                 
                 <Route path="*"  element={<Error404/>}/>
             </Routes>

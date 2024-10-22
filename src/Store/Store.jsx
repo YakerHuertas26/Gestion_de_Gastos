@@ -33,6 +33,10 @@ const useStoreAPP= create((set)=>({
 
     // ++++ SABER SI TENGO MÁS CONTENIDO POR MOSTRAR 
     mostrarMas:false,
-    setMostrarMas:(p)=>set({mostrarMas:p})
+    setMostrarMas:(p)=>set({mostrarMas:p}),
+
+    // ++++ EDITAR GASTOS
+    editGasto:null,
+    setEditGasto:(edit)=> set({editGasto:edit})
 }));
  export default useStoreAPP;
