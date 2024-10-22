@@ -11,7 +11,7 @@ const useStoreAPP= create((set)=>({
 
     
 
-    // +++++ Para mostrar el calendario
+    // +++++ Para el calendario
     fecha:new Date(),
     setFecha:(a)=>set({fecha:a}),
     

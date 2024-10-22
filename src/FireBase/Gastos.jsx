@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 import useStoreAPP from "../Store/Store";
 import { dataBase } from "./Config";
-import { collection, addDoc,getDocs,doc, onSnapshot,query,orderBy,where,limit, startAfter, getDoc } from "firebase/firestore";
+import { collection, addDoc,getDocs,doc, onSnapshot,query,orderBy,where,limit, startAfter, getDoc, updateDoc } from "firebase/firestore";
 import {deleteDoc } from "firebase/firestore";
 import { toast } from "sonner";
 import { useNavigate } from "react-router";
 
 
-const AgregarGasto = (categoria,descipcion,fechaSegundos,monto,usuarioID) => {
+const AgregarGasto =async (categoria,descipcion,fechaSegundos,monto,usuarioID) => {
    try {
-      return addDoc(collection(dataBase,"gastos"),{
+      await addDoc(collection(dataBase,"gastos"),{
        categoria:categoria,
        descipcion:descipcion,
        fechaSegundo:fechaSegundos,
@@ -129,4 +129,16 @@ const ObtenerUnGasto=  (id)=>{
    return [editGasto];
 }
 
-export {AgregarGasto,ObtenerListaDeGasto,BorrarGasto,ObtenerUnGasto};
+// Editar Gasto
+const EditarGasto= async(id,categoria,fecha, descipcion, monto)=>{
+   const documento= doc(dataBase,'gastos',id)
+  return await updateDoc(documento,{
+      categoria:categoria,
+       descipcion:descipcion,
+       fechaSegundo:fecha,
+       monto:Number(monto)
+   })
+  
+}
+
+export {AgregarGasto,ObtenerListaDeGasto,BorrarGasto,ObtenerUnGasto,EditarGasto};

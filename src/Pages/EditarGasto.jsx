@@ -5,6 +5,7 @@ import { FooterPage } from "../Elements/ElementFooter";
 // para poder extraer el id del link 
 import { useParams } from "react-router-dom";
 import { ObtenerUnGasto } from "../FireBase/Gastos";
+import { Toaster } from "sonner";
 
 
 const EditarGasto = () => {
@@ -18,6 +19,7 @@ const EditarGasto = () => {
         <HeaderPageEditar titulo="Editar Gasto"/>
         <FormularioGastos datosEdit={datosEdit}/>
         <FooterPage />
+        <Toaster expand visibleToasts={2} richColors/>
         </>
      );
 }
