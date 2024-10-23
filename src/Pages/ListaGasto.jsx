@@ -13,14 +13,14 @@ import { Boton } from "../Elements/E_Header";
 
 
 const ListaGasto = () => {
-    const {user}= useStoreAPP();
+
     const [listDeGasto,ObtenerMasListaGastos,mostrarMas]= ObtenerListaDeGasto();
 
     // regresar el formato de la fecha
-    const RegresarFormato= (fecha)=>{
-        // darFormato 
-        return format(fromUnixTime(fecha),"dd 'de' MMMM 'de' yyyy", {locale:es})
-    }
+    // const RegresarFormato= (fecha)=>{
+    //     // darFormato 
+    //     return format(fromUnixTime(fecha),"dd 'de' MMMM 'de' yyyy", {locale:es})
+    // }
     // Comprobar si las fechas son iguales 
     const fechasIguales= (listaGastos,index,gasto)=>{
         if (index!==0) {
@@ -47,7 +47,8 @@ return(
                 return(
                     <div key={gasto.id}>
 
-                    {!fechasIguales(listDeGasto,index,gasto)&&  <Fecha>{RegresarFormato(gasto.fechaSegundo)}</Fecha>}
+                    {/* {!fechasIguales(listDeGasto,index,gasto)&&  <Fecha>{RegresarFormato(gasto.fechaSegundo)}</Fecha>} */}
+                    
                     <ElementoLista key={gasto.id}>
                         <Categoria>
                             {gasto.categoria}

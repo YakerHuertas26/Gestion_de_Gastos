@@ -40,7 +40,7 @@ const Rutes = () => {
                 <Route path="/Lista_gasto" element={<RutasProtejidas> <ListaGasto/></RutasProtejidas>} />
                 <Route path="/Editar_gasto/:id" element={<RutasProtejidas><EditarGasto /></RutasProtejidas>} />
                 
-                <Route path="*"  element={<Error404/>}/>
+                <Route path="*"  element={<Home/>}/>
             </Routes>
         </BrowserRouter>
     );
