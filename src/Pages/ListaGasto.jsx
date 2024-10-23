@@ -14,41 +14,52 @@ import { Boton } from "../Elements/E_Header";
 
 const ListaGasto = () => {
 
-    const [listDeGasto,ObtenerMasListaGastos,mostrarMas]= ObtenerListaDeGasto();
-
+    const [listaDeGasto,ObtenerMasListaGastos,mostrarMas]= ObtenerListaDeGasto();
+    
+    
+    
     // regresar el formato de la fecha
-    // const RegresarFormato= (fecha)=>{
-    //     // darFormato 
-    //     return format(fromUnixTime(fecha),"dd 'de' MMMM 'de' yyyy", {locale:es})
-    // }
+    const RegresarFormato= (fecha)=>{
+        // darFormato 
+        return format(fromUnixTime(fecha),"dd 'de' MMMM 'de' yyyy", {locale:es})
+    }
     // Comprobar si las fechas son iguales 
-    const fechasIguales= (listaGastos,index,gasto)=>{
-        if (index!==0) {
-            const fechaActual= RegresarFormato(gasto.fechaSegundo);
-           
-            const fechaAnterior= RegresarFormato(listaGastos[index-1].fechaSegundo)
-            
-            if (fechaActual==fechaAnterior) {
-                return true                
-            }
-            else{
-                return false
-            }
+    const fechasIguales= (index,gasto)=>{
+            if (listaDeGasto) {
+                const fechaActual= RegresarFormato(gasto.fechaSegundo);
+                const fechaAnterior=(listaDeGasto[index-1])
+                if (fechaAnterior) {
+                    const fechaAnteriorConsulta= RegresarFormato(fechaAnterior.fechaSegundo)
+                    if (index!==0) {
+                        if (fechaActual==fechaAnteriorConsulta) {
+                            return true                
+                        }
+                        else{
+                            return false
+                        }
+                    }
+          
+                    
+                }
+                
+                
         }
     }
 return(
-         listDeGasto==null?
+         listaDeGasto==null?
         <span>Cargando ...</span>
          :
          <>
          <HeaderPage titulo="Lista de Gastos" ruta="/" />
          <Lista>
-            {listDeGasto.map((gasto,index)=>{
+            {listaDeGasto.map((gasto,index)=>{
+                
+                
                 return(
                     <div key={gasto.id}>
 
-                    {/* {!fechasIguales(listDeGasto,index,gasto)&&  <Fecha>{RegresarFormato(gasto.fechaSegundo)}</Fecha>} */}
-                    
+                    {!fechasIguales(index,gasto)&&  <Fecha>{RegresarFormato(gasto.fechaSegundo)}</Fecha>}
+                    {/* <Fecha>{RegresarFormato(gasto.fechaSegundo)}</Fecha> */}
                     <ElementoLista key={gasto.id}>
                         <Categoria>
                             {gasto.categoria}
@@ -83,7 +94,7 @@ return(
                 
 
                 {
-                    listDeGasto.length===0 &&
+                    listaDeGasto.length===0 &&
                     <>
                     <ContenedorSubtitulo>
                         <Subtitulo>No hay gastos</Subtitulo>
@@ -100,6 +111,6 @@ return(
          
         
      ;
+
 }
- 
 export default ListaGasto;
