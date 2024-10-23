@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { GastoPorMes } from "../FireBase/Gastos";
 import useStoreAPP from "../Store/Store";
 import { Footer, ParrafoStyled } from "../Styles/Aside";
 
@@ -9,12 +11,31 @@ const FormatoMoneda = (cantidad) => {
 }
  
 
-const FooterPage = ({description}) => {
-    const {monto}= useStoreAPP();
+const FooterPage = () => {
+
+    const gastoDelMes= GastoPorMes();
+    const {montoPorMes,setMontoPorMes}= useStoreAPP();
+
+    useEffect(()=>{
+        if (gastoDelMes) {
+            let montoTotal= 0;
+            gastoDelMes.forEach((element) => {
+                setMontoPorMes(montoTotal+=element.monto);
+            });
+            
+            if(gastoDelMes.length===0){
+                setMontoPorMes(0)
+            }
+        }
+        else{
+            setMontoPorMes(0) 
+        }
+        },[gastoDelMes])
+
     return ( 
         <Footer>
-            <ParrafoStyled>TOTAL GASTADO EN EL MES ...</ParrafoStyled>
-            <ParrafoStyled> {FormatoMoneda(monto)}</ParrafoStyled>
+            <ParrafoStyled>TOTAL GASTADO ...</ParrafoStyled>
+            <ParrafoStyled> {FormatoMoneda(montoPorMes)}</ParrafoStyled>
         </Footer>
      );
 }

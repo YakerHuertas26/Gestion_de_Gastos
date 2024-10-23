@@ -20,9 +20,7 @@ const useStoreAPP= create((set)=>({
     setMostarCalendario:()=> set((state)=>({mostrarCalendario:!state.mostrarCalendario})) ,
     selectFecha:()=>set({mostrarCalendario:false}),
 
-    // ++++ OBTENER UN MONTO 
-    monto:69,
-
+    
     // OBTENER LISTA DE GASTOS
     listaGasto:null,
     setListaGasto:(lista)=>set({listaGasto:lista}),
@@ -37,6 +35,15 @@ const useStoreAPP= create((set)=>({
 
     // ++++ EDITAR GASTOS
     editGasto:null,
-    setEditGasto:(edit)=> set({editGasto:edit})
+    setEditGasto:(edit)=> set({editGasto:edit}),
+
+    // +++GASTOs POR MES ++
+    gastoMes: null,
+    setGastoMes:(g)=> set({gastoMes:(g)}),
+
+    // +++ MONTO TOTAL POR MES
+    montoPorMes:0,
+    setMontoPorMes:(m)=> set({montoPorMes:m})
+
 }));
  export default useStoreAPP;

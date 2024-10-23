@@ -5,7 +5,7 @@ import { collection, addDoc,getDocs,doc, onSnapshot,query,orderBy,where,limit, s
 import {deleteDoc } from "firebase/firestore";
 import { toast } from "sonner";
 import { useNavigate } from "react-router";
-
+import { endOfMonth,startOfMonth,getUnixTime } from "date-fns";
 
 const AgregarGasto =async (categoria,descipcion,fechaSegundos,monto,usuarioID) => {
    try {
@@ -141,4 +141,38 @@ const EditarGasto= async(id,categoria,fecha, descipcion, monto)=>{
   
 }
 
-export {AgregarGasto,ObtenerListaDeGasto,BorrarGasto,ObtenerUnGasto,EditarGasto};
+// GASTOS POR MES 
+const GastoPorMes= ()=>{
+   const inicioDeMes=getUnixTime(startOfMonth(new Date()));
+   const finDeMes= getUnixTime(endOfMonth(new Date()));
+   
+   const {user,setGastoMes,gastoMes}= useStoreAPP();
+   // una unica consulta
+
+   useEffect(()=>{
+      if (user) {
+
+      const consulta= query(collection(dataBase,'gastos'),
+      orderBy ('fechaSegundo','desc'),
+      // where('fechaSegundo','>=',inicioDeMes),
+      // where('fechaSegundo','<=',finDeMes),
+      where('usuarioID','==',user.uid),
+      )
+
+      const obtenerCategoria= onSnapshot(consulta,(lista)=>{
+         setGastoMes(lista.docs.map((element)=>{
+            return {...element.data(),id:lista.id}
+            
+         }));
+         
+      },(error)=>{
+         console.log(error);
+      })
+      return()=> obtenerCategoria();
+   }
+   },[user]) 
+
+   return gastoMes
+}
+
+export {AgregarGasto,ObtenerListaDeGasto,BorrarGasto,ObtenerUnGasto,EditarGasto, GastoPorMes};
