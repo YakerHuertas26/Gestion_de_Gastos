@@ -181,8 +181,25 @@ const BotonCargarMas = styled.button`
     background:  #c1ede1;
   }
 `;
+const ListaDeCategorias = styled.ul`
+    /* border: 2px red solid; */
+    list-style: none;
+    padding: 0rem; /* 40px */
+    height: 85vh;
+    overflow-y: auto;
+    width: 90%;
+    margin: 0 auto;
+`;
+ 
+const ElementoListaCategorias = styled.li`
+    padding: 1.25rem 0; /* 20px */
+    border-bottom: 2px solid #F2F2F2;
+    display: flex;
+    gap: 3rem;
+    justify-content: space-between;
+`;
 
 export {
     Lista,ElementoLista,Categoria,Descripcion,Valor,
-    Fecha,ContenedorBotones,BotonAccion,BotonCargarMas,ContenedorBotonCentral,ContenedorSubtitulo,Subtitulo,
+    Fecha,ContenedorBotones,BotonAccion,BotonCargarMas,ContenedorBotonCentral,ContenedorSubtitulo,Subtitulo,ListaDeCategorias,ElementoListaCategorias
 };
