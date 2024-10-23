@@ -31,7 +31,6 @@ const FormularioGasto = styled.form`
         
 `;
 const HeaderForm = styled.div`
-   /* border:  solid 2px green; */
     width: 90%;
     margin-bottom: 10rem;
     margin-top: 1rem;
@@ -39,11 +38,18 @@ const HeaderForm = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     position: relative;
+    @media (max-width: 50rem) {
+       flex-direction: column;
+       .contentSelect{
+        margin-top: 8rem;
+       }
+       
+    }
 `;
 const MainForm = styled.div`
-  /* border:2px solid red; */
+
   width: 50rem;
   height: 40%;
   margin: 0 auto;

@@ -43,7 +43,11 @@ const useStoreAPP= create((set)=>({
 
     // +++ MONTO TOTAL POR MES
     montoPorMes:0,
-    setMontoPorMes:(m)=> set({montoPorMes:m})
+    setMontoPorMes:(m)=> set({montoPorMes:m}),
+
+    // +++ GASTOS POR CATEGORIA
+    gastoxCategorias:null,
+    setGastoxCategorias:(gxc)=>set({gastoxCategorias:gxc})
 
 }));
  export default useStoreAPP;

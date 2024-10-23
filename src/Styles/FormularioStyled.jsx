@@ -55,7 +55,7 @@ const CoteienerInputandError= styled.div`
 
 `
 const ContentInput = styled.div`
-  
+
   display: flex;
   align-items: center;
   justify-content:${props => props.$agregarGasto? 'center': 'space-between'};

@@ -1,4 +1,4 @@
-import { BrowserRouter,Routes,Route } from "react-router-dom";
+import {Routes,Route, HashRouter } from "react-router-dom";
 import Home from "../Pages/Home";
 import IniciarSesion from "../Pages/IniciarSesion";
 import CrearCuenta from "../Pages/CrearCuenta";
@@ -28,7 +28,7 @@ const Rutes = () => {
     
     return ( 
         
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
                 {/* rutas publicas */}
                 <Route path="Iniciar_sesion" element={<IniciarSesion/>} />
@@ -42,7 +42,7 @@ const Rutes = () => {
                 
                 <Route path="*"  element={<Home/>}/>
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 
