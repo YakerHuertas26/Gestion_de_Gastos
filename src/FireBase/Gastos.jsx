@@ -138,7 +138,7 @@ const EditarGasto= async(id,categoria,fecha, descipcion, monto)=>{
        fechaSegundo:getUnixTime(fecha),
        monto:Number(monto)
    })
-  
+   
 }
 
 // GASTOS POR MES 

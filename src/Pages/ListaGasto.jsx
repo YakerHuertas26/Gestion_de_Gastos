@@ -14,41 +14,41 @@ import { Boton } from "../Elements/E_Header";
 
 const ListaGasto = () => {
 
-    const [listDeGasto,ObtenerMasListaGastos,mostrarMas]= ObtenerListaDeGasto();
-
+    const [listaDeGasto,ObtenerMasListaGastos,mostrarMas]= ObtenerListaDeGasto();
+    
+    
+    
     // regresar el formato de la fecha
     const RegresarFormato= (fecha)=>{
         // darFormato 
         return format(fromUnixTime(fecha),"dd 'de' MMMM 'de' yyyy", {locale:es})
     }
     // Comprobar si las fechas son iguales 
-   
-        const fechasIguales= (index,gasto)=>{
-            if (listDeGasto,index,gasto) {
-                const fechaActual= RegresarFormato(gasto.fechaSegundo);
-                const fechaAnterior= (listDeGasto[index-1])
-                if (fechaAnterior) {
-                    const fechaAnteriorValidar= RegresarFormato(fechaAnterior.fechaSegundo);
-                            if (index!==0) {
-                                if (fechaActual==fechaAnteriorValidar) {
-                                    return true                
-                                }
-                                else{
-                                    return false
-                                }}}
-                            
-            }      
+    const fechasIguales= (index,gasto)=>{
+        if (index!==0) {
+            const fechaActual= RegresarFormato(gasto.fechaSegundo);
+           
+            const fechaAnterior= RegresarFormato(listaDeGasto[index-1].fechaSegundo)
+            
+            if (fechaActual==fechaAnterior) {
+                return true                
+            }
+            else{
+                return false
+            }
         }
     
-    
+    }
 return(
-         listDeGasto==null?
+         listaDeGasto==null?
         <span>Cargando ...</span>
          :
          <>
          <HeaderPage titulo="Lista de Gastos" ruta="/" />
          <Lista>
-            {listDeGasto.map((gasto,index)=>{
+            {listaDeGasto.map((gasto,index)=>{
+                
+                
                 return(
                     <div key={gasto.id}>
 
@@ -88,7 +88,7 @@ return(
                 
 
                 {
-                    listDeGasto.length===0 &&
+                    listaDeGasto.length===0 &&
                     <>
                     <ContenedorSubtitulo>
                         <Subtitulo>No hay gastos</Subtitulo>
@@ -105,6 +105,6 @@ return(
          
         
      ;
+
 }
- 
 export default ListaGasto;
