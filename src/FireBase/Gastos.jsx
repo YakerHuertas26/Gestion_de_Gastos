@@ -12,7 +12,7 @@ const AgregarGasto =async (categoria,descipcion,fechaSegundos,monto,usuarioID) =
       await addDoc(collection(dataBase,"gastos"),{
        categoria:categoria,
        descipcion:descipcion,
-       fechaSegundo:fechaSegundos,
+       fechaSegundo:getUnixTime(fechaSegundos),
        monto:Number(monto),
        usuarioID:usuarioID
       })
@@ -135,7 +135,7 @@ const EditarGasto= async(id,categoria,fecha, descipcion, monto)=>{
   return await updateDoc(documento,{
       categoria:categoria,
        descipcion:descipcion,
-       fechaSegundo:fecha,
+       fechaSegundo:getUnixTime(fecha),
        monto:Number(monto)
    })
   

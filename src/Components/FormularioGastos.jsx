@@ -33,7 +33,7 @@ const FormularioGastos = ({datosEdit}) => {
             const categoriaEdit=data.categoria;
             const descipcionEdit= data.description;        ;
             const montoEdit= parseFloat(data.monto).toFixed(2);
-            const fechaSegundosEdit = getUnixTime(fecha);
+            const fechaSegundosEdit = fecha;
             EditarGasto(datosEdit.id,categoriaEdit,fechaSegundosEdit,descipcionEdit,montoEdit);
 
             toast.success('Gasto Modificado correctamente',{
@@ -50,9 +50,10 @@ const FormularioGastos = ({datosEdit}) => {
             descipcion= data.description;        ;
             monto= parseFloat(data.monto).toFixed(2);
             usuarioID=user.uid
-            fechaSegundos = getUnixTime(fecha);
+            fechaSegundos = fecha;
             
             AgregarGasto(categoria,descipcion, fechaSegundos,monto,usuarioID)
+            
     
             toast.success('Gasto agregado correctamente',{
                 duration: 1000,

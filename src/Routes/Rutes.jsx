@@ -1,4 +1,4 @@
-import {Routes,Route, HashRouter } from "react-router-dom";
+import {Routes,Route, BrowserRouter } from "react-router-dom";
 import Home from "../Pages/Home";
 import IniciarSesion from "../Pages/IniciarSesion";
 import CrearCuenta from "../Pages/CrearCuenta";
@@ -28,7 +28,7 @@ const Rutes = () => {
     
     return ( 
         
-        <HashRouter>
+        <BrowserRouter>
             <Routes>
                 {/* rutas publicas */}
                 <Route path="Iniciar_sesion" element={<IniciarSesion/>} />
@@ -40,9 +40,9 @@ const Rutes = () => {
                 <Route path="/Lista_gasto" element={<RutasProtejidas> <ListaGasto/></RutasProtejidas>} />
                 <Route path="/Editar_gasto/:id" element={<RutasProtejidas><EditarGasto /></RutasProtejidas>} />
                 
-                <Route path="*"  element={<Home/>}/>
+                <Route path="*"  element={<Error404/>}/>
             </Routes>
-        </HashRouter>
+        </BrowserRouter>
     );
 }
 
